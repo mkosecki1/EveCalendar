@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name"></string>
+	<string name="main_activity_title"></string>
+	<string name="registration_activity_title"></string>
+	<string name="enter_email"></string>
+	<string name="enter_password"></string>
+	<string name="text_view_sign_in"></string>
+	<string name="button_register"></string>
+	<string name="button_login"></string>
+	<string name="enter_dialog_title"></string>
+	<string name="show_dialog_title"></string>
+	<string name="data"></string>
+	<string name="event_name"></string>
+	<string name="day_of_week"></string>
+	<string name="hour"></string>
+	<string name="cancel_button"></string>
+	<string name="ok_button"></string>
+	<string name="on_cancelled_toast_text"></string>
+	<string name="start_action_bar_error_text"></string>
+	<string name="time_all_day"></string>
+	<string name="event_duty"></string>
+	<string name="add_event_text"></string>
+	<string name="remove_event_text"></string>
+	<string name="event_clinic_text"></string>
+	<string name="event_visit_text"></string>
+	<string name="event_grafting_text"></string>
+	<string name="event_other_text"></string>
+	<string name="enter_email_text"></string>
+	<string name="enter_password_text"></string>
+	<string name="invalid_password_text"></string>
+	<string name="registered_text"></string>
+	<string name="not_registered_text"></string>
+	<string name="no_internet_connection"></string>
+</resources>

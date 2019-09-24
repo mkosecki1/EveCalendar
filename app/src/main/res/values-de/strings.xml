@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Unser Kalender</string>
+	<string name="main_activity_title">einloggen</string>
+	<string name="registration_activity_title">Anmeldung</string>
+	<string name="enter_email">Email</string>
+	<string name="enter_password">Kennwort</string>
+	<string name="text_view_sign_in">Klicken Sie auf, wenn Sie noch keinen Account haben</string>
+	<string name="button_register">Registrieren Sie sich</string>
+	<string name="button_login">einloggen</string>
+	<string name="enter_dialog_title">Fügen Sie ein Ereignis hinzu</string>
+	<string name="show_dialog_title">Veranstaltung am:</string>
+	<string name="data">Veranstaltungsdatum:</string>
+	<string name="event_name">Veranstaltung:</string>
+	<string name="day_of_week">Wochentag:</string>
+	<string name="hour">Zeit:</string>
+	<string name="cancel_button">stornieren</string>
+	<string name="ok_button">okay</string>
+	<string name="on_cancelled_toast_text">Beitrag konnte nicht geladen werden.</string>
+	<string name="start_action_bar_error_text">Fehleraktionsleiste.</string>
+	<string name="time_all_day">den ganzen Tag</string>
+	<string name="event_duty">Pflicht</string>
+	<string name="add_event_text">Die Veranstaltung wurde hinzugefügt</string>
+	<string name="remove_event_text">Die Veranstaltung wurde gelöscht</string>
+	<string name="event_clinic_text">Klinik</string>
+	<string name="event_visit_text">Besuch</string>
+	<string name="event_grafting_text">Transplantation</string>
+	<string name="event_other_text">andere</string>
+	<string name="enter_email_text">E-Mail-Adresse drucken</string>
+	<string name="enter_password_text">Schreiben Sie das Passwort</string>
+	<string name="invalid_password_text">Falsches Login oder Passwort</string>
+	<string name="registered_text">eingetragen</string>
+	<string name="not_registered_text">Registrierung fehlgeschlagen.</string>
+	<string name="no_internet_connection">Keine Internetverbindung</string>
+</resources>

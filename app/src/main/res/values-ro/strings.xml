@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Calendarul nostru</string>
+	<string name="main_activity_title">Autentificare</string>
+	<string name="registration_activity_title">înregistrare</string>
+	<string name="enter_email">e-mail</string>
+	<string name="enter_password">parolă</string>
+	<string name="text_view_sign_in">Faceți clic dacă nu aveți încă un cont</string>
+	<string name="button_register">Inscrie-te</string>
+	<string name="button_login">Autentificare</string>
+	<string name="enter_dialog_title">Adăugați un eveniment</string>
+	<string name="show_dialog_title">Eveniment la:</string>
+	<string name="data">Data evenimentului:</string>
+	<string name="event_name">eveniment:</string>
+	<string name="day_of_week">Ziua săptămânii:</string>
+	<string name="hour">timp:</string>
+	<string name="cancel_button">anula</string>
+	<string name="ok_button">O.K</string>
+	<string name="on_cancelled_toast_text">Nu a putut încărca postarea.</string>
+	<string name="start_action_bar_error_text">Bara de acțiune a erorii.</string>
+	<string name="time_all_day">toată ziua</string>
+	<string name="event_duty">taxă</string>
+	<string name="add_event_text">Evenimentul a fost adăugat</string>
+	<string name="remove_event_text">Evenimentul a fost șters</string>
+	<string name="event_clinic_text">clinică</string>
+	<string name="event_visit_text">vizita</string>
+	<string name="event_grafting_text">altoire</string>
+	<string name="event_other_text">alte</string>
+	<string name="enter_email_text">Printează adresa de e-mail</string>
+	<string name="enter_password_text">Scrie parola</string>
+	<string name="invalid_password_text">Logare sau parolă incorecte</string>
+	<string name="registered_text">înregistrat</string>
+	<string name="not_registered_text">Înregistrarea a eșuat.</string>
+	<string name="no_internet_connection">Fără conexiune la internet</string>
+</resources>

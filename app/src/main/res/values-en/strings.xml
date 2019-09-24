@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Our calendar</string>
+    <string name="main_activity_title">Log in</string>
+    <string name="registration_activity_title">Registration</string>
+    <string name="enter_email">e-mail</string>
+    <string name="enter_password">password</string>
+    <string name="text_view_sign_in">Click here if you don\'t have an account.</string>
+    <string name="button_register">Register</string>
+    <string name="button_login">Log in</string>
+    <string name="enter_dialog_title">Add an event</string>
+    <string name="show_dialog_title">Event on: </string>
+    <string name="data">Event Date: </string>
+    <string name="event_name">Event:</string>
+    <string name="day_of_week">Day of the week:</string>
+    <string name="hour">Hour:</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="ok_button">OK</string>
+    <string name="on_cancelled_toast_text">Failed to load post.</string>
+    <string name="start_action_bar_error_text">Error action bar.</string>
+    <string name="time_all_day">whole day</string>
+    <string name="event_duty">Duty</string>
+    <string name="add_event_text">The event has been added</string>
+    <string name="remove_event_text">The event has been deleted</string>
+    <string name="event_clinic_text">Clinic</string>
+    <string name="event_visit_text">Visit</string>
+    <string name="event_grafting_text">Grafting</string>
+    <string name="event_other_text">Other</string>
+    <string name="enter_email_text">Enter email</string>
+    <string name="enter_password_text">Enter password</string>
+    <string name="invalid_password_text">Invalid Login or password</string>
+    <string name="registered_text">Registered</string>
+    <string name="not_registered_text">Registration failed.</string>
+    <string name="no_internet_connection">No internet connection</string>
+</resources>

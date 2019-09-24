@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Naš kalendar</string>
+	<string name="main_activity_title">Prijavi se</string>
+	<string name="registration_activity_title">registracija</string>
+	<string name="enter_email">e</string>
+	<string name="enter_password">lozinka</string>
+	<string name="text_view_sign_in">Kliknite ako još nemate račun</string>
+	<string name="button_register">Prijavite se</string>
+	<string name="button_login">Prijavi se</string>
+	<string name="enter_dialog_title">Dodajte događaj</string>
+	<string name="show_dialog_title">Događaj na:</string>
+	<string name="data">Datum događaja:</string>
+	<string name="event_name">događaj:</string>
+	<string name="day_of_week">Dan u tjednu:</string>
+	<string name="hour">vrijeme:</string>
+	<string name="cancel_button">otkazati</string>
+	<string name="ok_button">u redu</string>
+	<string name="on_cancelled_toast_text">Učitavanje posta nije uspjelo.</string>
+	<string name="start_action_bar_error_text">Traka radnje pogreške</string>
+	<string name="time_all_day">cijeli dan</string>
+	<string name="event_duty">dužnost</string>
+	<string name="add_event_text">Događaj je dodan</string>
+	<string name="remove_event_text">Događaj je izbrisan</string>
+	<string name="event_clinic_text">klinika</string>
+	<string name="event_visit_text">posjet</string>
+	<string name="event_grafting_text">presađivanje</string>
+	<string name="event_other_text">drugo</string>
+	<string name="enter_email_text">Ispis adrese e-pošte</string>
+	<string name="enter_password_text">Napišite lozinku</string>
+	<string name="invalid_password_text">Neispravna prijava ili zaporka</string>
+	<string name="registered_text">zabilježen</string>
+	<string name="not_registered_text">Registracija nije uspjela.</string>
+	<string name="no_internet_connection">Nema internetske veze</string>
+</resources>

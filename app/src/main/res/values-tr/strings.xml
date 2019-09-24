@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Bizim takvim</string>
+	<string name="main_activity_title">Oturum</string>
+	<string name="registration_activity_title">kayıt</string>
+	<string name="enter_email">E-posta</string>
+	<string name="enter_password">şifre</string>
+	<string name="text_view_sign_in">Henüz bir hesabınız yoksa tıklayın</string>
+	<string name="button_register">kaydolmak</string>
+	<string name="button_login">Oturum</string>
+	<string name="enter_dialog_title">Bir etkinlik ekle</string>
+	<string name="show_dialog_title">Etkinlik tarihi:</string>
+	<string name="data">Etkinlik Tarihi:</string>
+	<string name="event_name">olay:</string>
+	<string name="day_of_week">Haftanın günü:</string>
+	<string name="hour">süresi:</string>
+	<string name="cancel_button">iptal</string>
+	<string name="ok_button">tamam</string>
+	<string name="on_cancelled_toast_text">Gönderi yüklenemedi.</string>
+	<string name="start_action_bar_error_text">Hata eylem çubuğu.</string>
+	<string name="time_all_day">bütün gün</string>
+	<string name="event_duty">görev</string>
+	<string name="add_event_text">Etkinlik eklendi</string>
+	<string name="remove_event_text">Etkinlik silindi</string>
+	<string name="event_clinic_text">klinik</string>
+	<string name="event_visit_text">ziyaret</string>
+	<string name="event_grafting_text">aşılama</string>
+	<string name="event_other_text">diğer</string>
+	<string name="enter_email_text">E-posta adresini yazdır</string>
+	<string name="enter_password_text">Şifreyi yaz</string>
+	<string name="invalid_password_text">Yanlış giriş veya şifre</string>
+	<string name="registered_text">kayıtlı</string>
+	<string name="not_registered_text">Kayıt işlemi başarısız oldu.</string>
+	<string name="no_internet_connection">İnternet bağlantısı yok</string>
+</resources>

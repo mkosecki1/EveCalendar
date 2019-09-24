@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Náš kalendár</string>
+	<string name="main_activity_title">prihlásiť</string>
+	<string name="registration_activity_title">registrácia</string>
+	<string name="enter_email">e-mail</string>
+	<string name="enter_password">heslo</string>
+	<string name="text_view_sign_in">Kliknite, ak ešte nemáte účet</string>
+	<string name="button_register">zaregistrovať</string>
+	<string name="button_login">prihlásiť</string>
+	<string name="enter_dialog_title">Pridajte udalosť</string>
+	<string name="show_dialog_title">Udalosť dňa:</string>
+	<string name="data">Dátum udalosti:</string>
+	<string name="event_name">udalosť:</string>
+	<string name="day_of_week">Deň v týždni:</string>
+	<string name="hour">čas:</string>
+	<string name="cancel_button">zrušiť</string>
+	<string name="ok_button">OK</string>
+	<string name="on_cancelled_toast_text">Načítanie príspevku zlyhalo.</string>
+	<string name="start_action_bar_error_text">Panel s chybami.</string>
+	<string name="time_all_day">celý deň</string>
+	<string name="event_duty">clo</string>
+	<string name="add_event_text">Udalosť bola pridaná</string>
+	<string name="remove_event_text">Udalosť bola odstránená</string>
+	<string name="event_clinic_text">klinika</string>
+	<string name="event_visit_text">návšteva</string>
+	<string name="event_grafting_text">štepenie</string>
+	<string name="event_other_text">ostatné</string>
+	<string name="enter_email_text">Tlač e-mailovej adresy</string>
+	<string name="enter_password_text">Napíšte heslo</string>
+	<string name="invalid_password_text">Nesprávne prihlasovacie meno alebo heslo</string>
+	<string name="registered_text">registrovaný</string>
+	<string name="not_registered_text">Registrácia zlyhala.</string>
+	<string name="no_internet_connection">Žiadne pripojenie k internetu</string>
+</resources>

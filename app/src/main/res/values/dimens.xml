@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_nano">2dp</dimen>
+    <dimen name="margin_micro">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_big">28dp</dimen>
+    <dimen name="margin_large">42dp</dimen>
+    <dimen name="icon_radius">10dp</dimen>
+    <dimen name="events_calendar_width">330dp</dimen>
+    <dimen name="elevation">1dp</dimen>
+    <dimen name="text_header_size">16sp</dimen>
+    <dimen name="text_calendar_size">14sp</dimen>
+    <dimen name="show_buttons_width">50dp</dimen>
+    <dimen name="log_field_width">220dp</dimen>
+    <dimen name="log_field_height">56dp</dimen>
+</resources>

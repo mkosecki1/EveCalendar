@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Nosso calendário</string>
+	<string name="main_activity_title">logar</string>
+	<string name="registration_activity_title">inscrição</string>
+	<string name="enter_email">o email</string>
+	<string name="enter_password">senha</string>
+	<string name="text_view_sign_in">Clique se você ainda não tem uma conta</string>
+	<string name="button_register">Registre-se</string>
+	<string name="button_login">logar</string>
+	<string name="enter_dialog_title">Adicionar evento</string>
+	<string name="show_dialog_title">Evento em:</string>
+	<string name="data">Data do evento:</string>
+	<string name="event_name">evento:</string>
+	<string name="day_of_week">Dia da semana:</string>
+	<string name="hour">tempo:</string>
+	<string name="cancel_button">cancelar</string>
+	<string name="ok_button">Está bem</string>
+	<string name="on_cancelled_toast_text">Falha ao carregar a postagem.</string>
+	<string name="start_action_bar_error_text">Barra de ação de erro.</string>
+	<string name="time_all_day">o dia inteiro</string>
+	<string name="event_duty">dever</string>
+	<string name="add_event_text">O evento foi adicionado</string>
+	<string name="remove_event_text">O evento foi excluído</string>
+	<string name="event_clinic_text">clínica</string>
+	<string name="event_visit_text">visita</string>
+	<string name="event_grafting_text">enxerto</string>
+	<string name="event_other_text">outro</string>
+	<string name="enter_email_text">Imprimir endereço de e-mail</string>
+	<string name="enter_password_text">Escreva a senha</string>
+	<string name="invalid_password_text">Login ou senha incorretos</string>
+	<string name="registered_text">registrado</string>
+	<string name="not_registered_text">O registro falhou.</string>
+	<string name="no_internet_connection">Sem conexão à internet</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid
+        android:color="@color/colorLightButtons" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/icon_radius"
+        android:bottomRightRadius="@dimen/icon_radius"
+        android:topLeftRadius="@dimen/icon_radius"
+        android:topRightRadius="@dimen/icon_radius" />
+
+    <gradient
+        android:startColor="@color/colorCalendarBackground"
+        android:centerColor="@color/colorCalendarBackground"
+        android:endColor="@color/colorCalendarBackground2"
+        android:angle="90"/>
+
+    <stroke android:width="2dp" android:color="@color/colorLightButtons"/>
+
+</shape>

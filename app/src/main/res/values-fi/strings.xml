@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Kalenterimme</string>
+	<string name="main_activity_title">kirjaudu sisään</string>
+	<string name="registration_activity_title">rekisteröinti</string>
+	<string name="enter_email">sähköposti</string>
+	<string name="enter_password">salasana</string>
+	<string name="text_view_sign_in">Napsauta, jos sinulla ei ole vielä tiliä</string>
+	<string name="button_register">ilmoittautua</string>
+	<string name="button_login">kirjaudu sisään</string>
+	<string name="enter_dialog_title">Lisää tapahtuma</string>
+	<string name="show_dialog_title">Tapahtuma:</string>
+	<string name="data">Tapahtuman päivämäärä:</string>
+	<string name="event_name">tapahtuma:</string>
+	<string name="day_of_week">Viikonpäivä:</string>
+	<string name="hour">aika:</string>
+	<string name="cancel_button">peruuttaa</string>
+	<string name="ok_button">kunnossa</string>
+	<string name="on_cancelled_toast_text">Viestin lataus epäonnistui.</string>
+	<string name="start_action_bar_error_text">Virhetoimintopalkki.</string>
+	<string name="time_all_day">koko päivän</string>
+	<string name="event_duty">velvollisuus</string>
+	<string name="add_event_text">Tapahtuma on lisätty</string>
+	<string name="remove_event_text">Tapahtuma on poistettu</string>
+	<string name="event_clinic_text">klinikka</string>
+	<string name="event_visit_text">käynti</string>
+	<string name="event_grafting_text">varttaminen</string>
+	<string name="event_other_text">muut</string>
+	<string name="enter_email_text">Tulosta sähköpostiosoite</string>
+	<string name="enter_password_text">Kirjoita salasana</string>
+	<string name="invalid_password_text">Väärä kirjautumistunnus tai salasana</string>
+	<string name="registered_text">kirjattu</string>
+	<string name="not_registered_text">Rekisteröinti epäonnistui.</string>
+	<string name="no_internet_connection">Ei Internet-yhteyttä</string>
+</resources>

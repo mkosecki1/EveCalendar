@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">我们的日历</string>
+	<string name="main_activity_title">登录</string>
+	<string name="registration_activity_title">注册</string>
+	<string name="enter_email">电子邮件</string>
+	<string name="enter_password">密码</string>
+	<string name="text_view_sign_in">如果您还没有帐户，请单击</string>
+	<string name="button_register">报名</string>
+	<string name="button_login">登录</string>
+	<string name="enter_dialog_title">添加活动</string>
+	<string name="show_dialog_title">活动日期：</string>
+	<string name="data">活动日期：</string>
+	<string name="event_name">事件：</string>
+	<string name="day_of_week">星期几：</string>
+	<string name="hour">时间：</string>
+	<string name="cancel_button">取消</string>
+	<string name="ok_button">好</string>
+	<string name="on_cancelled_toast_text">无法加载帖子。</string>
+	<string name="start_action_bar_error_text">错误操作栏。</string>
+	<string name="time_all_day">整天</string>
+	<string name="event_duty">责任</string>
+	<string name="add_event_text">该活动已被添加</string>
+	<string name="remove_event_text">该活动已被删除</string>
+	<string name="event_clinic_text">诊所</string>
+	<string name="event_visit_text">访问</string>
+	<string name="event_grafting_text">嫁接</string>
+	<string name="event_other_text">其他</string>
+	<string name="enter_email_text">打印邮箱地址</string>
+	<string name="enter_password_text">写密码</string>
+	<string name="invalid_password_text">登录名或密码不正确</string>
+	<string name="registered_text">注册</string>
+	<string name="not_registered_text">注册失败。</string>
+	<string name="no_internet_connection">没有互联网连接</string>
+</resources>

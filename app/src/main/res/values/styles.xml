@@ -1,0 +1,150 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="DarkPrimaryActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
+    <style name="DayDetailsBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/colorButtons</item>
+    </style>
+
+    <style name="buttonStyle" parent="TextAppearance.AppCompat.Button">
+        <item name="colorAccent">@color/colorLightButtons</item>
+    </style>
+
+
+    <style name="PickerTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:textColorSecondaryInverse">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+    </style>
+
+
+
+    <style name="textInputLayoutStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorLightButtons</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="textInputEditTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorLightButtons</item>
+        <item name="colorControlNormal">@color/colorLightButtons</item>
+        <item name="colorControlHighlight">@color/colorLightButtons</item>
+        <item name="colorControlActivated">@color/colorLightButtons</item>
+    </style>
+
+    <style name="myToastAdd">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_add</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">center</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastRemove">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_delete</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">center</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastPassword">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_pass</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">200</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastInvalid">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_invalid</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">200</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastMail">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_mail</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">200</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastRegistered">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_reg</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">200</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="myToastNoInternet">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">16sp</item>
+        <item name="stColorBackground">@color/colorDarkGray</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stStrokeWidth">0dp</item>
+        <item name="stStrokeColor">@color/colorToastStroke</item>
+        <item name="stIconStart">@drawable/ic_no_internet</item>
+        <item name="stLength">SHORT</item> LONG or SHORT
+        <item name="stGravity">center</item> top or center
+        <item name="stRadius">20dp</item>
+    </style>
+
+</resources>
