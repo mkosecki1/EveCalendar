@@ -11,50 +11,60 @@
         android:id="@+id/day_activity_title_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
         android:gravity="center"
-        android:text="Dzień: "
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/font_size_18"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/back_button_day_activity_id"
+        app:layout_constraintStart_toEndOf="@+id/day_activity_back_button_id"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_id"
+        android:id="@+id/day_activity_recycler_view_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:layoutAnimation="@anim/layout_animation_fall_down"
+        android:layout_marginTop="@dimen/margin_extra_large"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="@dimen/elevation"/>
 
     <ImageButton
-        android:id="@+id/back_button_day_activity_id"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/day_activity_back_button_id"
+        android:layout_width="@dimen/round_button_dimen"
+        android:layout_height="@dimen/round_button_dimen"
         android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/margin_small"
         android:background="@drawable/button_back"
         android:src="@drawable/ic_backspace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/button_add_day_activity_id"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:id="@+id/day_activity_add_button_id"
+        android:layout_width="@dimen/round_button_dimen"
+        android:layout_height="@dimen/round_button_dimen"
         android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
         android:background="@drawable/button_back"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
+    <ImageView
+        android:id="@+id/day_activity_background_image_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:src="@drawable/background_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/calendar_activity_background_id"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/calendar_image_id"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:id="@+id/calendar_activity_image_id"
+        android:layout_width="@dimen/calendar_activity_image_dimen"
+        android:layout_height="@dimen/calendar_activity_image_dimen"
         android:layout_marginTop="@dimen/margin_small"
         android:visibility="gone"
-        android:src="@drawable/autumn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/calendar_settings_id"
+        android:id="@+id/calendar_activity_settings_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_settings"
         android:layout_marginEnd="@dimen/margin_micro"
+        android:src="@drawable/ic_settings"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,30 +32,28 @@
         android:layout_marginStart="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_small"
+        android:elevation="@dimen/elevation"
         android:overScrollMode="never"
-        android:scaleX="1"
-        android:scaleY="1"
         app:datesTextSize="@dimen/text_header_size"
         app:eventDotColor="@color/eventDotColor"
         app:isBoldTextOnSelectionEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_activity_image_id"
         app:monthTitleColor="@color/white"
-        app:monthTitleTextSize="18sp"
+        app:monthTitleTextSize="@dimen/font_size_18"
         app:primaryTextColor="@color/white"
-        app:rangeSelectionColor="@color/colorCalendarBackground"
+        app:rangeSelectionColor="@color/transparent"
         app:rangeSelectionEndColor="@color/transparent"
         app:rangeSelectionStartColor="@color/transparent"
-        app:secondaryTextColor="@color/white"
+        app:secondaryTextColor="@color/colorGray"
         app:selectedTextColor="@color/white"
-        app:selectionColor="@color/transparent"
+        app:selectionColor="@color/colorSelectionCalendar"
         app:weekHeaderColor="@color/white"
-        android:elevation="1dp"
         app:weekHeaderTextSize="@dimen/text_calendar_size" />
 
     <ProgressBar
-        android:id="@+id/progressbar_calendar_activity"
+        android:id="@+id/calendar_activity_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="@dimen/elevation"
@@ -67,15 +63,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_id"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layoutAnimation="@anim/layout_animation_fall_down"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/events_calendar_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

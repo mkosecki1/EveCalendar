@@ -1,20 +1,30 @@
 package com.sharedcalendar.utility
 
+import android.app.Activity
 import android.content.Context
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.View
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.muddzdev.styleabletoast.StyleableToast
 import com.sharedcalendar.R
 import kotlinx.android.synthetic.main.activity_calendar.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+
+fun hideKeyboard(activity: Activity) {
+    val view = activity.currentFocus
+    (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).apply {
+        hideSoftInputFromWindow(view?.windowToken, 0)
+    }
+}
 
 fun showMessage(context: Context, massage: String) =
     Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
@@ -53,33 +63,24 @@ fun Context.checkInternetConnection(): Boolean {
 
 fun Context.startSound(sound: Int) = MediaPlayer.create(this, sound).start()
 
-fun AppCompatActivity.setupActionBar(toolbar: Toolbar, titleId: Int) {
-    this.setSupportActionBar(toolbar)
-    supportActionBar?.let {
-        title = getString(titleId)
-        it.setDisplayHomeAsUpEnabled(false)
-        it.setDisplayShowTitleEnabled(false)
-    }
-}
-
 fun AppCompatActivity.hideStatusBar() = window.setFlags(FLAG_FULLSCREEN, FLAG_FULLSCREEN)
 
 fun View.setMonthImage(
     currentMonth: Int
 ) {
     when (currentMonth) {
-        0 -> calendar_image_id.setImageResource(R.drawable.background0)
-        1 -> calendar_image_id.setImageResource(R.drawable.background1)
-        2 -> calendar_image_id.setImageResource(R.drawable.background2)
-        3 -> calendar_image_id.setImageResource(R.drawable.background3)
-        4 -> calendar_image_id.setImageResource(R.drawable.background4)
-        5 -> calendar_image_id.setImageResource(R.drawable.background5)
-        6 -> calendar_image_id.setImageResource(R.drawable.background6)
-        7 -> calendar_image_id.setImageResource(R.drawable.background7)
-        8 -> calendar_image_id.setImageResource(R.drawable.background8)
-        9 -> calendar_image_id.setImageResource(R.drawable.background9)
-        10 -> calendar_image_id.setImageResource(R.drawable.background10)
-        11 -> calendar_image_id.setImageResource(R.drawable.background11)
+        0 -> calendar_activity_image_id.setImageResource(R.drawable.background0)
+        1 -> calendar_activity_image_id.setImageResource(R.drawable.background1)
+        2 -> calendar_activity_image_id.setImageResource(R.drawable.background2)
+        3 -> calendar_activity_image_id.setImageResource(R.drawable.background3)
+        4 -> calendar_activity_image_id.setImageResource(R.drawable.background4)
+        5 -> calendar_activity_image_id.setImageResource(R.drawable.background5)
+        6 -> calendar_activity_image_id.setImageResource(R.drawable.background6)
+        7 -> calendar_activity_image_id.setImageResource(R.drawable.background7)
+        8 -> calendar_activity_image_id.setImageResource(R.drawable.background8)
+        9 -> calendar_activity_image_id.setImageResource(R.drawable.background9)
+        10 -> calendar_activity_image_id.setImageResource(R.drawable.background10)
+        11 -> calendar_activity_image_id.setImageResource(R.drawable.background11)
     }
 }
 
@@ -103,32 +104,14 @@ fun ConstraintLayout.setMonthBackground(
     }
 }
 
-//fun View.setMonthImage(currentMonth: Int) {
-//    when (currentMonth) {
-//        in 0..1 -> calendar_image_id.setImageResource(R.drawable.winter)
-//        in 2..4 -> calendar_image_id.setImageResource(R.drawable.spring)
-//        in 5..7 -> calendar_image_id.setImageResource(R.drawable.summer)
-//        in 8..10 -> calendar_image_id.setImageResource(R.drawable.autumn)
-//        11 -> calendar_image_id.setImageResource(R.drawable.winter)
-//    }
-//}
-
-//fun ConstraintLayout.setSeasonBackground(currentMonth: Int, context: Context) {
-//    when (currentMonth) {
-//        in 0..1 -> background = context.getDrawable(R.color.winterBackground)
-//        in 2..4 -> background = context.getDrawable(R.color.springBackground)
-//        in 5..7 -> background = context.getDrawable(R.color.summerBackground)
-//        in 8..10 -> background = context.getDrawable(R.color.autumnBackground2)
-//        11 -> background = context.getDrawable(R.color.winterBackground)
-//    }
-//}
-//
-//fun EventsCalendar.setSeasonText(currentMonth: Int) {
-//    when (currentMonth) {
-//        in 0..1 -> setPrimaryTextColor(R.color.white)
-//        in 2..4 -> setPrimaryTextColor(R.color.white)
-//        in 5..7 -> setPrimaryTextColor(R.color.black)
-//        in 8..10 -> setPrimaryTextColor(R.color.black)
-//        11 -> setPrimaryTextColor(R.color.white)
-//    }
-//}
+fun Context.startVibration(duration: Long) {
+    val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    if (vibrator.hasVibrator()) {
+        vibrator.vibrate(
+            VibrationEffect.createOneShot(
+                duration,
+                VibrationEffect.DEFAULT_AMPLITUDE
+            )
+        )
+    }
+}

@@ -4,12 +4,9 @@
     <color name="colorPrimaryDark">#000051</color>
     <color name="colorAccent">#1A237E</color>
     <color name="colorButtons">#2330A7</color>
-    <color name="colorLightButtons">#5A52BD</color>
+    <color name="colorViolet">#5A52BD</color>
     <color name="colorToastStroke">#5149A3</color>
-    <color name="colorCalendarBackground">#0A5A52BD</color>
-    <color name="colorCalendarBackground2">#265A52BD</color>
-    <color name="colorOrange">#E0781C</color>
-    <color name="autumnBackground">#FFC501</color>
+    <color name="colorSelectionCalendar">#E9B718</color>
     <color name="winterBackground">#007B9A</color>
     <color name="springBackground">#00BDDD</color>
     <color name="summerBackground">#8FDCEE</color>
@@ -17,7 +14,7 @@
     <color name="colorLightGray">#ECEAEA</color>
     <color name="dirtyWhite">#F7F4F4</color>
     <color name="white">#FFFFFF</color>
-    <color name="colorDarkGray">#222121</color>
+    <color name="colorDarkGray">#494747</color>
     <color name="eventDotColor">#FFFCBE</color>
     <color name="weekendColor">#1EE44444</color>
     <color name="calendarPrimaryTextColor">#535050</color>

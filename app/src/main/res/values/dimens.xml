@@ -14,4 +14,20 @@
     <dimen name="show_buttons_width">50dp</dimen>
     <dimen name="log_field_width">220dp</dimen>
     <dimen name="log_field_height">56dp</dimen>
+    <dimen name="add_text_top_height">60dp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="picker_height">300dp</dimen>
+    <dimen name="time_picker_width">130dp</dimen>
+    <dimen name="round_button_dimen">50dp</dimen>
+    <dimen name="calendar_activity_image_dimen">220dp</dimen>
+    <dimen name="margin_extra_large">62dp</dimen>
+    <dimen name="margin_huge">100dp</dimen>
+    <dimen name="button_login_width">110dp</dimen>
+    <dimen name="button_register_width">180dp</dimen>
+    <dimen name="progressbar_size">50dp</dimen>
+    <dimen name="touch_image_dimen">30dp</dimen>
+    <dimen name="logo_width">183dp</dimen>
+    <dimen name="logo_height">213dp</dimen>
+    <dimen name="event_image_size">50dp</dimen>
 </resources>
