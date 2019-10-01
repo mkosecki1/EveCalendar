@@ -2,63 +2,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/show_dialog_event"
+    android:id="@+id/event_details_activity_background_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/show_dialog_event_constraint_id"
+        android:id="@+id/event_details_constraint_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_medium"
-        android:background="@drawable/calendar_view_shape"
+        android:background="@drawable/white_board_view_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/event_details_image_id"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="@dimen/event_image_size"
+            android:layout_height="@dimen/event_image_size"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
             android:src="@drawable/ic_hospital"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
              />
 
-        <!--<TextView-->
-        <!--android:id="@+id/show_dialog_data_displayed_hint_text_id"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="@dimen/margin_small"-->
-        <!--android:layout_marginTop="@dimen/margin_small"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/data"-->
-        <!--android:textSize="16sp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textColor="@color/white"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:text="Data" />-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/event_details_data_displayed_id"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="@dimen/margin_small"-->
-        <!--android:gravity="center"-->
-        <!--android:textSize="16sp"-->
-        <!--android:textColor="@color/white"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/guideline1_id"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:text="2019-09-09" />-->
-
         <TextView
-            android:id="@+id/show_dialog_event_displayed_hint_text_id"
+            android:id="@+id/event_details_displayed_hint_text_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
@@ -66,7 +39,7 @@
             android:gravity="center"
             android:text="@string/event_name"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_16"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -80,12 +53,12 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline1_id"
+            app:layout_constraintStart_toStartOf="@+id/event_details_guideline_id"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="event" />
 
         <TextView
-            android:id="@+id/show_dialog_week_displayed_hint_text_id"
+            android:id="@+id/event_details_week_displayed_hint_text_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
@@ -93,10 +66,10 @@
             android:gravity="center"
             android:text="@string/day_of_week"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_16"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show_dialog_event_displayed_hint_text_id"
+            app:layout_constraintTop_toBottomOf="@+id/event_details_displayed_hint_text_id"
             tools:text="week" />
 
         <TextView
@@ -106,13 +79,13 @@
             android:layout_marginTop="@dimen/margin_medium"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline1_id"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintStart_toStartOf="@+id/event_details_guideline_id"
             app:layout_constraintTop_toBottomOf="@+id/event_details_event_displayed_id"
             tools:text="poniedziałek" />
 
         <TextView
-            android:id="@+id/show_dialog_time_displayed_hint_text_id"
+            android:id="@+id/event_details_time_displayed_hint_text_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
@@ -120,10 +93,10 @@
             android:gravity="center"
             android:text="@string/hour"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_16"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show_dialog_week_displayed_hint_text_id"
+            app:layout_constraintTop_toBottomOf="@+id/event_details_week_displayed_hint_text_id"
             tools:text="godzina" />
 
         <TextView
@@ -133,13 +106,13 @@
             android:layout_marginTop="@dimen/margin_medium"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline1_id"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintStart_toStartOf="@+id/event_details_guideline_id"
             app:layout_constraintTop_toBottomOf="@+id/event_details_week_day_displayed_id"
             tools:text="22:00" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline1_id"
+            android:id="@+id/event_details_guideline_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -157,7 +130,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_details_week_day_displayed_id" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

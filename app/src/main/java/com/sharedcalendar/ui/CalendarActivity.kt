@@ -1,39 +1,45 @@
 package com.sharedcalendar.ui
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import com.events.calendar.utils.EventsCalendarUtil.today
 import com.events.calendar.views.EventsCalendar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.sharedcalendar.R
 import com.sharedcalendar.database.CalendarDate
-import com.sharedcalendar.database.Statics
 import com.sharedcalendar.utility.*
+import com.sharedcalendar.viewmodel.CalendarViewModel
+import com.sharedcalendar.viewmodel.CalendarViewModelFactory
 import kotlinx.android.synthetic.main.activity_calendar.*
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 import java.util.*
 
-class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback {
+class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAware {
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var databaseReference: DatabaseReference
-    private var valueEventListener: ValueEventListener? = null
-    private lateinit var loggedUser: String
+    override val kodein: Kodein by kodein()
+    private lateinit var calendarListener: ValueEventListener
+    private lateinit var calendarViewModel: CalendarViewModel
+    private val databaseReference: FirebaseDatabase by instance()
+    private val calendarViewModelFactory: CalendarViewModelFactory by instance()
+    private val firebaseAuth: FirebaseAuth by instance()
+    private var listOfCalendarDate: List<CalendarDate> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
+        initializeCalendarViewModel()
         hideStatusBar()
-        runFirebase()
-        checkLoggedUser()
 
-        calendar_settings_id.setOnClickListener {
+        calendar_activity_settings_id.setOnClickListener {
             logoutUser()
             finish()
         }
@@ -42,101 +48,57 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback {
     override fun onDayLongPressed(selectedDate: Calendar?) {
         val pickedDate = selectedDate!!.time.convertToday()
         val currentMonth = selectedDate.time.month
-        recycler_view_id.visibility = View.VISIBLE
-        startVibration()
+        startVibration(250)
         openEventDetails(pickedDate, currentMonth)
     }
 
     override fun onMonthChanged(monthStartDate: Calendar?) {
-        recycler_view_id.visibility = View.GONE
-        calendar_image_id.setMonthImage(monthStartDate!!.time.month)
-        calendar_activity_background_id.setMonthBackground(monthStartDate!!.time.month, this)
+        calendar_activity_image_id.setMonthImage(monthStartDate!!.time.month)
+        calendar_activity_background_id.setMonthBackground(monthStartDate.time.month, this)
     }
 
-    override fun onDaySelected(selectedDate: Calendar?) {}
-
-    public override fun onStart() {
-        progressbar_calendar_activity.visibility = View.VISIBLE
-        super.onStart()
-        if (checkInternetConnection()) {
-            val calendarListener = object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val listOfCalendarDate =
-                        dataSnapshot.child(Statics.FIREBASE_DATE).children.mapNotNull {
-                            it.getValue<CalendarDate>(CalendarDate::class.java)
-                        }
-                    runCalendar()
-
-                    val cal = Calendar.getInstance()
-
-                    listOfCalendarDate.forEach {
-                        cal.set(
-                            it.date?.split("-")!![0].toInt(),
-                            it.date?.split("-")!![1].toInt() - 1,
-                            it.date?.split("-")!![2].toInt()
-                        )
-                        events_calendar_id.addEvent(cal)
-                    }
-                    progressbar_calendar_activity.visibility = View.GONE
-                }
-
-                override fun onCancelled(databaseError: DatabaseError) {
-                    Toast.makeText(
-                        baseContext, getString(R.string.on_cancelled_toast_text),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-            databaseReference.addValueEventListener(calendarListener)
-            this.valueEventListener = calendarListener
-        }
-    }
-
-    private fun runCalendar() {
-        val today = Calendar.getInstance()
-        val end = Calendar.getInstance()
-        end.add(Calendar.YEAR, 2)
-        events_calendar_id.setSelectionMode(events_calendar_id.MULTIPLE_SELECTION)
-            .setToday(today)
-            .setMonthRange(today, end)
-            .setWeekStartDay(Calendar.MONDAY, true)
-            .setCurrentSelectedDate(today)
-            .setIsBoldTextOnSelectionEnabled(true)
-            .setWeekHeaderTypeface(Typeface.DEFAULT_BOLD)
-            .setCallback(this)
-            .build()
-
-//        calendar_image_id.setMonthImage(today.time.month)
-//        calendar_activity_background_id.setSeasonBackground(today.time.month, this)
-        calendar_image_id.setMonthImage(today.time.month)
-        calendar_activity_background_id.setMonthBackground(today.time.month, this)
-        calendar_image_id.visibility = View.VISIBLE
-    }
-
-    private fun runFirebase() {
-        auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().reference
+    override fun onDaySelected(selectedDate: Calendar?) {
+        val selectedMonth = selectedDate!!.time.month
+        changeCalendarBackground(selectedMonth)
     }
 
     private fun logoutUser() {
-        auth.signOut()
+        firebaseAuth.signOut()
         startActivity(Intent(this, MainActivity::class.java))
     }
 
-    private fun checkLoggedUser() {
-        if (auth.currentUser != null) {
-            loggedUser = " ${auth.currentUser?.email}"
+    private fun initializeCalendarViewModel() {
+        calendarViewModel =
+            ViewModelProviders.of(this, calendarViewModelFactory).get(CalendarViewModel::class.java)
+    }
+
+    public override fun onStart() {
+        calendar_activity_progressbar.visibility = View.VISIBLE
+        super.onStart()
+        runCalendar()
+        if (this.checkInternetConnection()) {
+            loadEventsDate()
+            addToDatabaseReference()
         }
+        calendar_activity_progressbar.visibility = View.GONE
+    }
+
+    private fun loadEventsDate(): ValueEventListener {
+        calendarListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                listOfCalendarDate = calendarViewModel.setDataFromFirebase(dataSnapshot)
+                runCalendar()
+                calendarViewModel.addEventDotsOnCalendar(events_calendar_id, listOfCalendarDate)
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+        }
+        return calendarListener
     }
 
     private fun openEventDetails(calendar: String, currentMonth: Int) {
-        val calendarListener = object : ValueEventListener {
+        calendarListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val listOfCalendarDate =
-                    dataSnapshot.child(Statics.FIREBASE_DATE).children.mapNotNull {
-                        it.getValue<CalendarDate>(CalendarDate::class.java)
-                    }
+                listOfCalendarDate = calendarViewModel.setDataFromFirebase(dataSnapshot)
                 val filteredList = listOfCalendarDate.filter { it.date!! == calendar }
 
                 if (!filteredList.isNullOrEmpty() && calendar == filteredList[0].date) {
@@ -144,11 +106,13 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback {
                     intent.putExtra("value", calendar)
                     intent.putExtra("month", currentMonth)
                     startActivity(intent)
+                    finish()
                 } else {
                     val intent = Intent(applicationContext, AddEventActivity::class.java)
                     intent.putExtra("value", calendar)
                     intent.putExtra("month", currentMonth)
                     startActivity(intent)
+                    finish()
                 }
             }
 
@@ -159,19 +123,41 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback {
                 ).show()
             }
         }
-        databaseReference.addValueEventListener(calendarListener)
-        this.valueEventListener = calendarListener
+        addToDatabaseReference()
     }
 
-    private fun startVibration() {
-        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        if (vibrator.hasVibrator()) {
-            vibrator.vibrate(
-                VibrationEffect.createOneShot(
-                    300,
-                    VibrationEffect.DEFAULT_AMPLITUDE
-                )
-            )
+    private fun addToDatabaseReference() {
+        calendarViewModel.addToDatabase(databaseReference.reference, calendarListener)
+    }
+
+    private fun runCalendar() {
+        val today = Calendar.getInstance()
+        val minMonth = Calendar.getInstance()
+        minMonth.add(Calendar.MONTH, -12)
+        val end = Calendar.getInstance()
+        end.add(Calendar.YEAR, 2)
+        events_calendar_id.setSelectionMode(events_calendar_id.SINGLE_SELECTION)
+            .setToday(today)
+            .setMonthRange(minMonth, end)
+            .setWeekStartDay(Calendar.MONDAY, true)
+            .setCurrentSelectedDate(today)
+            .setIsBoldTextOnSelectionEnabled(true)
+            .setWeekHeaderTypeface(Typeface.DEFAULT_BOLD)
+            .setCallback(this)
+            .build()
+
+        changeCalendarBackground(events_calendar_id.getCurrentSelectedDate()!!.time.month)
+        calendar_activity_image_id.visibility = View.VISIBLE
+    }
+
+    private fun changeCalendarBackground(selectedMonth: Int) {
+        val currentMonth = today.time.month
+        if(selectedMonth == currentMonth){
+            calendar_activity_image_id.setMonthImage(currentMonth)
+            calendar_activity_background_id.setMonthBackground(currentMonth, this)
+        } else {
+            calendar_activity_image_id.setMonthImage(selectedMonth)
+            calendar_activity_background_id.setMonthBackground(selectedMonth, this)
         }
     }
 }

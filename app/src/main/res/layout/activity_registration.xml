@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
-    android:focusable="true"
     android:background="@color/dirtyWhite"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ui.RegistrationActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_email_register_activity_id"
+        android:id="@+id/register_activity_text_email_layout_id"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="@dimen/log_field_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/margin_huge"
         android:hint="@string/enter_email"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/colorLightButtons"
+        app:boxStrokeColor="@color/colorViolet"
         app:errorEnabled="true"
         app:hintTextAppearance="@style/textInputLayoutStyle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_registration_email_id"
+            android:id="@+id/register_activity_text_email_edit_id"
             android:layout_width="match_parent"
             android:layout_height="@dimen/log_field_height"
             android:imeOptions="actionNext"
@@ -41,23 +41,23 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_login_register_activity_id"
+        android:id="@+id/register_activity_text_password_layout_id"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="@dimen/log_field_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:hint="@string/enter_password"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/colorLightButtons"
+        app:boxStrokeColor="@color/colorViolet"
         app:errorEnabled="true"
         app:hintTextAppearance="@style/textInputLayoutStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email_register_activity_id">
+        app:layout_constraintTop_toBottomOf="@+id/register_activity_text_email_layout_id">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_registration_password_id"
+            android:id="@+id/register_activity_text_password_edit_id"
             android:layout_width="match_parent"
             android:layout_height="@dimen/log_field_height"
             android:imeOptions="actionDone"
@@ -74,8 +74,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_registration_id"
-        android:layout_width="180dp"
+        android:id="@+id/register_activity_button_registration_id"
+        android:layout_width="@dimen/button_register_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:background="@drawable/button_ripple_effect"
@@ -83,30 +83,29 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_login_register_activity_id" />
+        app:layout_constraintTop_toBottomOf="@+id/register_activity_text_password_layout_id" />
 
     <ProgressBar
-        android:id="@+id/progressbar_registration_activity"
+        android:id="@+id/registration_activity_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation"
         android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone"
-        android:elevation="@dimen/elevation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/back_button_register_activity_id"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/register_activity_back_button_id"
+        android:layout_width="@dimen/round_button_dimen"
+        android:layout_height="@dimen/round_button_dimen"
+        android:layout_marginStart="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginStart="8dp"
         android:background="@drawable/button_back"
         android:src="@drawable/ic_backspace_register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

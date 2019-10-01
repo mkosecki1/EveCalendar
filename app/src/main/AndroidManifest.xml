@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_luncher"
         android:label="@string/app_name"
@@ -16,16 +17,18 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.AddEventActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/DayDetailsBarTheme" />
         <activity
             android:name=".ui.DayActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/DayDetailsBarTheme" />
         <activity
             android:name=".ui.StartActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,15 +39,13 @@
         <activity
             android:name=".ui.RegistrationActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DayDetailsBarTheme"/>
+            android:theme="@style/DayDetailsBarTheme" />
         <activity
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/DayDetailsBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
     </application>

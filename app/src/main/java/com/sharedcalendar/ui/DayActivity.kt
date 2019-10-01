@@ -4,23 +4,33 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.muddzdev.styleabletoast.StyleableToast
 import com.sharedcalendar.R
 import com.sharedcalendar.adapters.RecyclerViewAdapter
-import com.sharedcalendar.database.CalendarDate
 import com.sharedcalendar.database.Statics
 import com.sharedcalendar.utility.hideStatusBar
 import com.sharedcalendar.utility.setMonthBackground
-import kotlinx.android.synthetic.main.activity_calendar.recycler_view_id
+import com.sharedcalendar.viewmodel.DayViewModel
+import com.sharedcalendar.viewmodel.DayViewModelFactory
 import kotlinx.android.synthetic.main.activity_day.*
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class DayActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+class DayActivity : AppCompatActivity(), KodeinAware {
+
+    override val kodein: Kodein by kodein()
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
-    private lateinit var databaseReference: DatabaseReference
-    private var valueEventListener: ValueEventListener? = null
+    private lateinit var valueEventListener: ValueEventListener
+    private lateinit var dayViewModel: DayViewModel
+    private val databaseReference: FirebaseDatabase by instance()
+    private val dayViewModelFactory: DayViewModelFactory by instance()
     private val datePick: String by lazy { intent.getStringExtra("value") }
     private val monthPick: Int by lazy { intent.getIntExtra("month", 0) }
 
@@ -28,57 +38,58 @@ class DayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_day)
         hideStatusBar()
-        runFirebase()
+        initializeDayViewModel()
         eventDetails(datePick)
         runRecyclerViewAdapter()
 
-        back_button_day_activity_id.setOnClickListener {
+        day_activity_back_button_id.setOnClickListener {
+            startActivity(Intent(this, CalendarActivity::class.java))
             finish()
         }
 
-        button_add_day_activity_id.setOnClickListener {
+        day_activity_add_button_id.setOnClickListener {
             val intent = Intent(this, AddEventActivity::class.java)
             if (!datePick.isNullOrEmpty()) {
                 intent.putExtra("value", datePick)
                 intent.putExtra("month", monthPick)
             }
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivityForResult(intent,0)
-            finish()
+            startActivity(intent)
         }
     }
 
-    private fun runFirebase() {
-        auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().reference
+    override fun onBackPressed() {
+        startActivity(Intent(this, CalendarActivity::class.java))
+    }
+
+    private fun initializeDayViewModel() {
+        dayViewModel =
+            ViewModelProviders.of(this, dayViewModelFactory).get(DayViewModel::class.java)
     }
 
     private fun runRecyclerViewAdapter() {
         recyclerViewAdapter = RecyclerViewAdapter()
-        recycler_view_id.adapter = recyclerViewAdapter
+        day_activity_recycler_view_id.adapter = recyclerViewAdapter
     }
 
     private fun eventDetails(calendar: String) {
-        val calendarListener = object : ValueEventListener {
+        valueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val listOfCalendarDate =
-                    dataSnapshot.child(Statics.FIREBASE_DATE).children.mapNotNull {
-                        it.getValue<CalendarDate>(CalendarDate::class.java)
-                    }
+                    dayViewModel.setDataFromFirebase(dataSnapshot)
+
                 val filteredList = listOfCalendarDate.filter { it.date!! == calendar }
                 if (filteredList.isNullOrEmpty()) {
-                    day_activity_title_id.text = "Dodaj wydarzenie \nw dniu: ${datePick}"
+                    finish()
                 } else {
                     day_activity_title_id.text = "Dzień: ${datePick}"
                     day_activity_background_id.setMonthBackground(monthPick, this@DayActivity)
-
                 }
 
                 recyclerViewAdapter.updateItemList(filteredList)
                 recyclerViewAdapter.selectedItem = {
                     removeEvent(it.id.toString())
                 }
-                recyclerViewAdapter.notifyDataSetChanged()
+//                recyclerViewAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -88,20 +99,28 @@ class DayActivity : AppCompatActivity() {
                 ).show()
             }
         }
-        databaseReference.addValueEventListener(calendarListener)
-        this.valueEventListener = calendarListener
+        addToDatabaseReference()
+    }
+
+    private fun addToDatabaseReference() {
+        dayViewModel.addToDatabase(databaseReference.reference, valueEventListener)
     }
 
 
     private fun removeEvent(eventId: String) {
-        val task = databaseReference.child(Statics.FIREBASE_DATE).child(eventId)
-        task.removeValue()
+        val dbReference = dayViewModel.takeTaskFromDatabase(
+            databaseReference.reference,
+            Statics.FIREBASE_DATE,
+            eventId
+        )
+        dbReference.removeValue()
         StyleableToast.makeText(
             applicationContext,
             getString(R.string.remove_event_text),
             Toast.LENGTH_LONG,
             R.style.myToastRemove
         ).show()
-        finish()
+//        finish()
+//        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
     }
 }

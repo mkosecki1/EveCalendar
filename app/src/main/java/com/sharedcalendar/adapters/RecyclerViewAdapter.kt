@@ -20,9 +20,9 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(viewGroup.context)
-        val goldRow = layoutInflater.inflate(R.layout.event_details, viewGroup, false)
+        val row = layoutInflater.inflate(R.layout.event_details, viewGroup, false)
         myContext = viewGroup.context
-        return ViewHolder(goldRow)
+        return ViewHolder(row)
     }
 
     override fun getItemCount(): Int {

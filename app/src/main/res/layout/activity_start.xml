@@ -8,9 +8,9 @@
     tools:context=".ui.StartActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="183dp"
-        android:layout_height="213dp"
+        android:id="@+id/start_activity_logo_id"
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="@dimen/logo_height"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,10 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.muddzdev.styleabletoast.StyleableToast
 import com.sharedcalendar.R
@@ -17,49 +16,59 @@ import com.sharedcalendar.database.EventsEvidence
 import com.sharedcalendar.database.Statics
 import com.sharedcalendar.utility.hideStatusBar
 import com.sharedcalendar.utility.setMonthBackground
+import com.sharedcalendar.viewmodel.AddEventViewModel
+import com.sharedcalendar.viewmodel.AddEventViewModelFactory
 import kotlinx.android.synthetic.main.activity_add_event.*
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddEventActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+class AddEventActivity : AppCompatActivity(), KodeinAware {
+    override val kodein: Kodein by kodein()
+    private lateinit var addEventViewModel: AddEventViewModel
+    private lateinit var imageCarousel: CarouselPicker
     private val datePickFromDay: String by lazy { intent.getStringExtra("value") }
     private val monthPick: Int by lazy { intent.getIntExtra("month", 0) }
+    private val addEventViewModelFactory: AddEventViewModelFactory by instance()
+    private val databaseReference: FirebaseDatabase by instance()
     private var eventsEvidence = EventsEvidence()
-    private lateinit var imageCarousel: CarouselPicker
-    private lateinit var databaseReference: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
         hideStatusBar()
-        runFirebase()
         enterData(datePickFromDay)
+        initializeAddEventViewModel()
+
+        add_activity_cancel_button_id.setOnClickListener {
+            finish()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
-    private fun runFirebase() {
-        auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().reference
+    private fun initializeAddEventViewModel() {
+        addEventViewModel =
+            ViewModelProviders.of(this, addEventViewModelFactory).get(AddEventViewModel::class.java)
     }
 
     private fun enterData(calendar: String) {
         add_activity_background_id.setMonthBackground(monthPick, this)
-        imageCarousel = carousel_dialog_id
+        imageCarousel = add_activity_carousel_id
         createListOfCarousel(imageCarousel)
-        enter_dialog_data_id.text = calendar
+        add_activity_text_data_id.text = calendar
         eventsEvidence.date = calendar
-        time_picker_dialog_id.setOnTimeChangedListener { _, hour, minute ->
+        add_activity_time_picker_id.setOnTimeChangedListener { _, hour, minute ->
             val cal = Calendar.getInstance()
             cal.set(Calendar.HOUR_OF_DAY, hour)
             cal.set(Calendar.MINUTE, minute)
             eventsEvidence.time = SimpleDateFormat("HH:mm").format(cal.time)
         }
 
-        enter_dialog_cancel_button_id.setOnClickListener {
-            finish()
-        }
-
-        carousel_dialog_id.addOnPageChangeListener(object :
+        add_activity_carousel_id.addOnPageChangeListener(object :
             ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
@@ -81,7 +90,7 @@ class AddEventActivity : AppCompatActivity() {
             override fun onPageScrollStateChanged(state: Int) {}
         })
 
-        dialog_ok_button_id.setOnClickListener {
+        add_activity_ok_button_id.setOnClickListener {
             saveDate()
             finish()
         }
@@ -117,7 +126,8 @@ class AddEventActivity : AppCompatActivity() {
             eventsEvidence.event = ""
         }
 
-        val newDate = databaseReference.child(Statics.FIREBASE_DATE).push()
+        val newDate =
+            addEventViewModel.pushToDatabase(databaseReference.reference, Statics.FIREBASE_DATE)
         calendarDate.id = newDate.key
         newDate.setValue(calendarDate)
         StyleableToast.makeText(
