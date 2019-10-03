@@ -25,6 +25,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/calendar_activity_logout_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_micro"
+        android:src="@drawable/logout"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_activity_settings_id" />
+
+    <ImageView
+        android:id="@+id/calendar_activity_exit_id"
+        android:layout_width="@dimen/exit_icon_size"
+        android:layout_height="@dimen/exit_icon_size"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_micro"
+        android:src="@drawable/ic_exit_app"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_activity_logout_id" />
+
     <com.events.calendar.views.EventsCalendar
         android:id="@+id/events_calendar_id"
         android:layout_width="0dp"

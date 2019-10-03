@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -35,6 +36,7 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
     private val calendarViewModelFactory: CalendarViewModelFactory by instance()
     private val firebaseAuth: FirebaseAuth by instance()
     private var listOfCalendarDate: List<CalendarDate> = mutableListOf()
+    private var isSettingsClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +44,17 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
         initializeCalendarViewModel()
         hideStatusBar()
 
-        calendar_activity_settings_id.setOnClickListener {
+        calendar_activity_logout_id.setOnClickListener {
             logoutUser()
             finish()
+        }
+
+        calendar_activity_exit_id.setOnClickListener {
+            finish()
+        }
+
+        calendar_activity_settings_id.setOnClickListener {
+            openSettings()
         }
     }
 
@@ -167,6 +177,27 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
         } else {
             calendar_activity_image_id.setMonthImage(selectedMonth)
             calendar_activity_background_id.setMonthBackground(selectedMonth, this)
+        }
+    }
+
+    private fun openSettings() {
+        val animZoomIn = AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+        val animZoomOut = AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
+        when {
+            isSettingsClicked -> {
+                calendar_activity_logout_id.toggleVisibility()
+                calendar_activity_exit_id.toggleVisibility()
+                calendar_activity_logout_id.startAnimation(animZoomOut)
+                calendar_activity_exit_id.startAnimation(animZoomOut)
+                isSettingsClicked = false
+            }
+            else -> {
+                calendar_activity_logout_id.toggleVisibility()
+                calendar_activity_exit_id.toggleVisibility()
+                calendar_activity_logout_id.startAnimation(animZoomIn)
+                calendar_activity_exit_id.startAnimation(animZoomIn)
+                isSettingsClicked = true
+            }
         }
     }
 }
