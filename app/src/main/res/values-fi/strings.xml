@@ -32,4 +32,6 @@
 	<string name="registered_text">kirjattu</string>
 	<string name="not_registered_text">Rekisteröinti epäonnistui.</string>
 	<string name="no_internet_connection">Ei Internet-yhteyttä</string>
+	<string name="this_day">Päivä</string>
+	<string name="exit_information">Napsauta uudelleen takaisin poistuaksesi</string>
 </resources>

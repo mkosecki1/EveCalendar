@@ -13,6 +13,7 @@
 	<string name="data">Veranstaltungsdatum:</string>
 	<string name="event_name">Veranstaltung:</string>
 	<string name="day_of_week">Wochentag:</string>
+	<string name="this_day">Tag:</string>
 	<string name="hour">Zeit:</string>
 	<string name="cancel_button">stornieren</string>
 	<string name="ok_button">okay</string>
@@ -32,4 +33,5 @@
 	<string name="registered_text">eingetragen</string>
 	<string name="not_registered_text">Registrierung fehlgeschlagen.</string>
 	<string name="no_internet_connection">Keine Internetverbindung</string>
+	<string name="exit_information">Klicken Sie erneut zurück, um den Vorgang zu beenden</string>
 </resources>

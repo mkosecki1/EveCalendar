@@ -32,4 +32,6 @@
 	<string name="registered_text">registrovaný</string>
 	<string name="not_registered_text">Registrácia zlyhala.</string>
 	<string name="no_internet_connection">Žiadne pripojenie k internetu</string>
+	<string name="this_day">Deň</string>
+	<string name="exit_information">Ak chcete ukončiť, kliknite znova späť</string>
 </resources>

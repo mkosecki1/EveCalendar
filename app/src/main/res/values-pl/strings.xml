@@ -13,6 +13,7 @@
 	<string name="data">Data wydarzenia: </string>
 	<string name="event_name">Wydarzenie:</string>
 	<string name="day_of_week">Dzień tygodnia:</string>
+	<string name="this_day">Dzień:</string>
 	<string name="hour">Godzina:</string>
 	<string name="cancel_button">Anuluj</string>
 	<string name="ok_button">OK</string>
@@ -32,4 +33,5 @@
 	<string name="registered_text">Zarejestrowano</string>
 	<string name="not_registered_text">Rejestracja nie powiodła się.</string>
 	<string name="no_internet_connection">Brak połączenia internetowego</string>
+	<string name="exit_information">Naciśnij jeszcze raz żeby zamknąć aplikację</string>
 </resources>

@@ -32,4 +32,6 @@
 	<string name="registered_text">kayıtlı</string>
 	<string name="not_registered_text">Kayıt işlemi başarısız oldu.</string>
 	<string name="no_internet_connection">İnternet bağlantısı yok</string>
+	<string name="this_day">Gün</string>
+	<string name="exit_information">Çıkmak için tekrar tıklayın</string>
 </resources>

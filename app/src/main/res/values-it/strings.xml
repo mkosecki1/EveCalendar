@@ -32,4 +32,6 @@
 	<string name="registered_text">registrato</string>
 	<string name="not_registered_text">Registrazione fallita.</string>
 	<string name="no_internet_connection">Nessuna connessione Internet</string>
+	<string name="this_day">Giorno</string>
+	<string name="exit_information">Fai di nuovo clic per uscire</string>
 </resources>
