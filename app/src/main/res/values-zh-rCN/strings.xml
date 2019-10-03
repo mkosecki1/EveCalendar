@@ -13,6 +13,7 @@
 	<string name="data">活动日期：</string>
 	<string name="event_name">事件：</string>
 	<string name="day_of_week">星期几：</string>
+	<string name="this_day">天</string>
 	<string name="hour">时间：</string>
 	<string name="cancel_button">取消</string>
 	<string name="ok_button">好</string>
@@ -32,4 +33,5 @@
 	<string name="registered_text">注册</string>
 	<string name="not_registered_text">注册失败。</string>
 	<string name="no_internet_connection">没有互联网连接</string>
+	<string name="exit_information">请再次点击返回退出</string>
 </resources>

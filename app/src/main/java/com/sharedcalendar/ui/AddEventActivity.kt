@@ -1,7 +1,6 @@
 package com.sharedcalendar.ui
 
 import `in`.goodiebag.carouselpicker.CarouselPicker
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +35,6 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
     private val databaseReference: FirebaseDatabase by instance()
     private var eventsEvidence = EventsEvidence()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
@@ -46,7 +44,6 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
 
         add_activity_cancel_button_id.setOnClickListener {
             finish()
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

@@ -4,7 +4,7 @@
     <string name="registration_activity_title">Registration</string>
     <string name="enter_email">e-mail</string>
     <string name="enter_password">password</string>
-    <string name="text_view_sign_in">Click here if you don\'t have an account.</string>
+    <string name="text_view_sign_in">Click here if you do not have an account.</string>
     <string name="button_register">Register</string>
     <string name="button_login">Log in</string>
     <string name="enter_dialog_title">Add an event on day:</string>
@@ -12,6 +12,7 @@
     <string name="data">Event Date: </string>
     <string name="event_name">Event:</string>
     <string name="day_of_week">Day of the week:</string>
+    <string name="this_day">Day:</string>
     <string name="hour">Hour:</string>
     <string name="cancel_button">Cancel</string>
     <string name="ok_button">OK</string>
@@ -31,4 +32,5 @@
     <string name="registered_text">Registered</string>
     <string name="not_registered_text">Registration failed.</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="exit_information">Please click back again to exit</string>
 </resources>

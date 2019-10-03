@@ -10,7 +10,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.events.calendar.utils.EventsCalendarUtil.today
 import com.events.calendar.views.EventsCalendar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.sharedcalendar.R
 import com.sharedcalendar.database.CalendarDate
 import com.sharedcalendar.utility.*
@@ -45,10 +48,14 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
         }
     }
 
+    override fun onBackPressed() {
+        //do nothing
+    }
+
     override fun onDayLongPressed(selectedDate: Calendar?) {
         val pickedDate = selectedDate!!.time.convertToday()
         val currentMonth = selectedDate.time.month
-        startVibration(250)
+        startVibration(100)
         openEventDetails(pickedDate, currentMonth)
     }
 
@@ -90,6 +97,7 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
                 runCalendar()
                 calendarViewModel.addEventDotsOnCalendar(events_calendar_id, listOfCalendarDate)
             }
+
             override fun onCancelled(databaseError: DatabaseError) {}
         }
         return calendarListener
@@ -106,13 +114,14 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
                     intent.putExtra("value", calendar)
                     intent.putExtra("month", currentMonth)
                     startActivity(intent)
+                    overridePendingTransition(R.anim.appear, R.anim.no_animation)
                     finish()
                 } else {
                     val intent = Intent(applicationContext, AddEventActivity::class.java)
                     intent.putExtra("value", calendar)
                     intent.putExtra("month", currentMonth)
                     startActivity(intent)
-                    finish()
+                    overridePendingTransition(R.anim.appear, R.anim.no_animation)
                 }
             }
 
@@ -152,7 +161,7 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
 
     private fun changeCalendarBackground(selectedMonth: Int) {
         val currentMonth = today.time.month
-        if(selectedMonth == currentMonth){
+        if (selectedMonth == currentMonth) {
             calendar_activity_image_id.setMonthImage(currentMonth)
             calendar_activity_background_id.setMonthBackground(currentMonth, this)
         } else {

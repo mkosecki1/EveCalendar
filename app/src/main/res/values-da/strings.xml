@@ -32,4 +32,6 @@
 	<string name="registered_text">anbefalet</string>
 	<string name="not_registered_text">Registrering mislykkedes.</string>
 	<string name="no_internet_connection">Ingen internetforbindelse</string>
+	<string name="this_day">Dag</string>
+	<string name="exit_information">Klik tilbage igen for at afslutte</string>
 </resources>

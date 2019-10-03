@@ -54,11 +54,13 @@ class DayActivity : AppCompatActivity(), KodeinAware {
                 intent.putExtra("month", monthPick)
             }
             startActivity(intent)
+            overridePendingTransition(R.anim.appear, R.anim.no_animation)
         }
     }
 
     override fun onBackPressed() {
         startActivity(Intent(this, CalendarActivity::class.java))
+        finish()
     }
 
     private fun initializeDayViewModel() {
@@ -81,7 +83,7 @@ class DayActivity : AppCompatActivity(), KodeinAware {
                 if (filteredList.isNullOrEmpty()) {
                     finish()
                 } else {
-                    day_activity_title_id.text = "Dzień: ${datePick}"
+                    day_activity_title_id.text = getString(R.string.this_day)+" ${datePick}"
                     day_activity_background_id.setMonthBackground(monthPick, this@DayActivity)
                 }
 
@@ -89,7 +91,6 @@ class DayActivity : AppCompatActivity(), KodeinAware {
                 recyclerViewAdapter.selectedItem = {
                     removeEvent(it.id.toString())
                 }
-//                recyclerViewAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -106,7 +107,6 @@ class DayActivity : AppCompatActivity(), KodeinAware {
         dayViewModel.addToDatabase(databaseReference.reference, valueEventListener)
     }
 
-
     private fun removeEvent(eventId: String) {
         val dbReference = dayViewModel.takeTaskFromDatabase(
             databaseReference.reference,
@@ -120,7 +120,5 @@ class DayActivity : AppCompatActivity(), KodeinAware {
             Toast.LENGTH_LONG,
             R.style.myToastRemove
         ).show()
-//        finish()
-//        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
     }
 }

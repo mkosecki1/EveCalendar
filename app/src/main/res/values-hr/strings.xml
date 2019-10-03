@@ -32,4 +32,6 @@
 	<string name="registered_text">zabilježen</string>
 	<string name="not_registered_text">Registracija nije uspjela.</string>
 	<string name="no_internet_connection">Nema internetske veze</string>
+	<string name="this_day">Dan</string>
+	<string name="exit_information">Ponovno kliknite natrag za izlazak</string>
 </resources>
