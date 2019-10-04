@@ -119,4 +119,15 @@
         app:layout_constraintTop_toBottomOf="@+id/main_activity_sign_in_id"
         tools:ignore="MissingConstraints" />
 
+    <ImageView
+        android:id="@+id/main_activity_background_image_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:src="@drawable/background_main_activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
