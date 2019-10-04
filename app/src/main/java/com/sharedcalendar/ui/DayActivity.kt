@@ -81,6 +81,7 @@ class DayActivity : AppCompatActivity(), KodeinAware {
 
                 val filteredList = listOfCalendarDate.filter { it.date!! == calendar }
                 if (filteredList.isNullOrEmpty()) {
+                    startActivity(Intent(applicationContext, CalendarActivity::class.java))
                     finish()
                 } else {
                     day_activity_title_id.text = getString(R.string.this_day)+" ${datePick}"

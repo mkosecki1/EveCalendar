@@ -30,4 +30,5 @@
     <dimen name="logo_width">183dp</dimen>
     <dimen name="logo_height">213dp</dimen>
     <dimen name="event_image_size">50dp</dimen>
+    <dimen name="exit_icon_size">36dp</dimen>
 </resources>
