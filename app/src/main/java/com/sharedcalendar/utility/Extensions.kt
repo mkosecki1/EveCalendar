@@ -69,18 +69,18 @@ fun View.setMonthImage(
     currentMonth: Int
 ) {
     when (currentMonth) {
-        0 -> calendar_activity_image_id.setImageResource(R.drawable.background0)
-        1 -> calendar_activity_image_id.setImageResource(R.drawable.background1)
-        2 -> calendar_activity_image_id.setImageResource(R.drawable.background2)
-        3 -> calendar_activity_image_id.setImageResource(R.drawable.background3)
-        4 -> calendar_activity_image_id.setImageResource(R.drawable.background4)
-        5 -> calendar_activity_image_id.setImageResource(R.drawable.background5)
-        6 -> calendar_activity_image_id.setImageResource(R.drawable.background6)
-        7 -> calendar_activity_image_id.setImageResource(R.drawable.background7)
-        8 -> calendar_activity_image_id.setImageResource(R.drawable.background8)
-        9 -> calendar_activity_image_id.setImageResource(R.drawable.background9)
-        10 -> calendar_activity_image_id.setImageResource(R.drawable.background10)
-        11 -> calendar_activity_image_id.setImageResource(R.drawable.background11)
+        0 -> calendar_activity_image_id.setImageResource(R.drawable.coffee0)
+        1 -> calendar_activity_image_id.setImageResource(R.drawable.coffee1)
+        2 -> calendar_activity_image_id.setImageResource(R.drawable.coffee2)
+        3 -> calendar_activity_image_id.setImageResource(R.drawable.coffee3)
+        4 -> calendar_activity_image_id.setImageResource(R.drawable.coffee4)
+        5 -> calendar_activity_image_id.setImageResource(R.drawable.coffee5)
+        6 -> calendar_activity_image_id.setImageResource(R.drawable.coffee6)
+        7 -> calendar_activity_image_id.setImageResource(R.drawable.coffee7)
+        8 -> calendar_activity_image_id.setImageResource(R.drawable.coffee8)
+        9 -> calendar_activity_image_id.setImageResource(R.drawable.coffee9)
+        10 -> calendar_activity_image_id.setImageResource(R.drawable.coffee10)
+        11 -> calendar_activity_image_id.setImageResource(R.drawable.coffee11)
     }
 }
 

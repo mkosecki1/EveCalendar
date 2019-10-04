@@ -47,7 +47,7 @@ class RegistrationActivity : AppCompatActivity(), KodeinAware {
                 Toast.LENGTH_LONG,
                 R.style.myToastMail
             ).show()
-            registration_activity_progressbar.visibility = View.GONE
+            register_activity_progressbar.visibility = View.GONE
             return
         }
         if (TextUtils.isEmpty(password)) {
@@ -57,12 +57,12 @@ class RegistrationActivity : AppCompatActivity(), KodeinAware {
                 Toast.LENGTH_LONG,
                 R.style.myToastPassword
             ).show()
-            registration_activity_progressbar.visibility = View.GONE
+            register_activity_progressbar.visibility = View.GONE
             return
         }
 
         hideKeyboard(this)
-        registration_activity_progressbar.toggleVisibility()
+        register_activity_progressbar.toggleVisibility()
         firebaseAuthIsRegistered(email, password)
     }
 
@@ -76,7 +76,7 @@ class RegistrationActivity : AppCompatActivity(), KodeinAware {
                         Toast.LENGTH_LONG,
                         R.style.myToastRegistered
                     ).show()
-                    registration_activity_progressbar.visibility = View.GONE
+                    register_activity_progressbar.visibility = View.GONE
                     startActivity(Intent(this, CalendarActivity::class.java))
                     finish()
                 } else {
@@ -87,7 +87,7 @@ class RegistrationActivity : AppCompatActivity(), KodeinAware {
                         R.style.myToastRegistered
                     ).show()
                 }
-                registration_activity_progressbar.toggleVisibility()
+                register_activity_progressbar.toggleVisibility()
             }
     }
 }

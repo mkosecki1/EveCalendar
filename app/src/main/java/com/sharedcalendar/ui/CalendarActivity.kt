@@ -50,7 +50,7 @@ class CalendarActivity : AppCompatActivity(), EventsCalendar.Callback, KodeinAwa
         }
 
         calendar_activity_exit_id.setOnClickListener {
-            finish()
+            finishAffinity()
         }
 
         calendar_activity_settings_id.setOnClickListener {

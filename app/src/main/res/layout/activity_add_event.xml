@@ -97,7 +97,7 @@
         android:id="@+id/add_activity_background_image_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.1"
+        android:alpha="0.2"
         android:src="@drawable/backgraund_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
