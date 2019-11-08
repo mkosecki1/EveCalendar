@@ -3,13 +3,7 @@
     android:shape="rectangle">
 
     <solid
-        android:color="@color/white" />
-
-    <corners
-        android:bottomLeftRadius="@dimen/icon_radius"
-        android:bottomRightRadius="@dimen/icon_radius"
-        android:topLeftRadius="@dimen/icon_radius"
-        android:topRightRadius="@dimen/icon_radius" />
+        android:color="@color/dirtyWhite" />
 
     <stroke
         android:width="2dp"

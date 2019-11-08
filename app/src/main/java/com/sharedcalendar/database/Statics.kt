@@ -1,5 +1,11 @@
 package com.sharedcalendar.database
 
 object Statics {
-    @JvmStatic val FIREBASE_DATE: String = "events"
+    @JvmStatic var FIREBASE_DATE: String = ""
+    @JvmStatic var FIREBASE_TYPE: String = ""
+
+    fun changeDate(dateName: String, typeName: String) {
+        FIREBASE_DATE = dateName
+        FIREBASE_TYPE = typeName
+    }
 }

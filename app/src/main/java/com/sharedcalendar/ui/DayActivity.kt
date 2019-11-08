@@ -15,6 +15,7 @@ import com.sharedcalendar.adapters.RecyclerViewAdapter
 import com.sharedcalendar.database.Statics
 import com.sharedcalendar.utility.hideStatusBar
 import com.sharedcalendar.utility.setMonthBackground
+import com.sharedcalendar.utility.setMonthNavigationBarsColour
 import com.sharedcalendar.viewmodel.DayViewModel
 import com.sharedcalendar.viewmodel.DayViewModelFactory
 import kotlinx.android.synthetic.main.activity_day.*
@@ -31,8 +32,8 @@ class DayActivity : AppCompatActivity(), KodeinAware {
     private lateinit var dayViewModel: DayViewModel
     private val databaseReference: FirebaseDatabase by instance()
     private val dayViewModelFactory: DayViewModelFactory by instance()
-    private val datePick: String by lazy { intent.getStringExtra("value") }
-    private val monthPick: Int by lazy { intent.getIntExtra("month", 0) }
+    private val datePick: String by lazy { intent.getStringExtra(CALENDAR_DATE) }
+    private val monthPick: Int by lazy { intent.getIntExtra(CURRENT_MONTH, 0) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,23 +44,23 @@ class DayActivity : AppCompatActivity(), KodeinAware {
         runRecyclerViewAdapter()
 
         day_activity_back_button_id.setOnClickListener {
-            startActivity(Intent(this, CalendarActivity::class.java))
+            runCalendarActivity()
             finish()
         }
 
         day_activity_add_button_id.setOnClickListener {
             val intent = Intent(this, AddEventActivity::class.java)
             if (!datePick.isNullOrEmpty()) {
-                intent.putExtra("value", datePick)
-                intent.putExtra("month", monthPick)
+                intent.putExtra(CALENDAR_DATE, datePick)
+                intent.putExtra(CURRENT_MONTH, monthPick)
             }
             startActivity(intent)
-            overridePendingTransition(R.anim.appear, R.anim.no_animation)
+            finish()
         }
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, CalendarActivity::class.java))
+        runCalendarActivity()
         finish()
     }
 
@@ -81,13 +82,15 @@ class DayActivity : AppCompatActivity(), KodeinAware {
 
                 val filteredList = listOfCalendarDate.filter { it.date!! == calendar }
                 if (filteredList.isNullOrEmpty()) {
-                    startActivity(Intent(applicationContext, CalendarActivity::class.java))
+//                    startActivity(Intent(applicationContext, CalendarActivity::class.java))
                     finish()
                 } else {
-                    day_activity_title_id.text = getString(R.string.this_day)+" ${datePick}"
+                    day_activity_title_id.text = getString(R.string.this_day) + " $datePick"
                     day_activity_background_id.setMonthBackground(monthPick, this@DayActivity)
+                    setMonthNavigationBarsColour(window, monthPick, this@DayActivity)
                 }
 
+                recyclerViewAdapter.updateTypeList(dayViewModel.setTypeFromFirebase(dataSnapshot))
                 recyclerViewAdapter.updateItemList(filteredList)
                 recyclerViewAdapter.selectedItem = {
                     removeEvent(it.id.toString())
@@ -119,7 +122,19 @@ class DayActivity : AppCompatActivity(), KodeinAware {
             applicationContext,
             getString(R.string.remove_event_text),
             Toast.LENGTH_LONG,
-            R.style.myToastRemove
+            R.style.MyToastRemove
         ).show()
+    }
+
+    private fun runCalendarActivity() {
+        val intent = Intent(this, CalendarActivity::class.java)
+        intent.putExtra(CALENDAR_DATE_BACK, datePick)
+        startActivity(intent)
+    }
+
+    companion object {
+        const val CALENDAR_DATE = "value"
+        const val CALENDAR_DATE_BACK = "value1"
+        const val CURRENT_MONTH = "month"
     }
 }

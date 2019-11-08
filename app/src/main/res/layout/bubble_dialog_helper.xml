@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bubble_dialog_helper_id"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/elevation_3"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/bubble_dialog_helper_image_view_id"
+        android:layout_width="@dimen/bubble_dialog_width"
+        android:layout_height="@dimen/bubble_dialog_height"
+        android:src="@drawable/bubble_dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/bubble_dialog_helper_text_view_id"
+        style="@style/TextOptionsStyle"
+        android:layout_width="@dimen/dialog_helper_text_width"
+        android:layout_height="@dimen/dialog_helper_text_height"
+        android:layout_marginTop="@dimen/dialog_helper_text_margin_top"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:text="@string/bubble_dialog_calendar_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bubble_dialog_helper_image_view_id" />
+
+    <CheckBox
+        android:id="@+id/bubble_dialog_helper_check_box_id"
+        style="@style/TextOptionsStyle"
+        android:layout_width="@dimen/dialog_helper_text_width"
+        android:layout_height="@dimen/dialog_helper_text_check_height"
+        android:backgroundTint="@color/eventDotColor"
+        android:buttonTint="@color/black"
+        android:text="@string/bubble_dialog_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bubble_dialog_helper_text_view_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

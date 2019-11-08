@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dirtyWhite"
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context=".ui.MainActivity">
@@ -16,10 +15,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_huge"
         android:hint="@string/enter_email"
+        android:textColorHint="@color/colorBlue"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/colorViolet"
+        app:boxStrokeColor="@color/colorBlue"
         app:errorEnabled="true"
-        app:hintTextAppearance="@style/textInputLayoutStyle"
+        app:hintTextAppearance="@style/TextAppearance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +35,9 @@
             android:maxLines="1"
             android:paddingStart="@dimen/margin_medium"
             android:singleLine="true"
+            android:textColor="@color/colorBlue"
             android:textCursorDrawable="@color/colorPrimaryDark"
-            android:theme="@style/textInputEditTextStyle"
+            android:theme="@style/TextInputEditTextStyle"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,10 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:hint="@string/enter_password"
+        android:textColorHint="@color/colorBlue"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/colorViolet"
+        app:boxStrokeColor="@color/colorBlue"
+        app:boxStrokeWidth="@dimen/margin_medium"
         app:errorEnabled="true"
-        app:hintTextAppearance="@style/textInputLayoutStyle"
+        app:hintTextAppearance="@style/TextAppearance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,13 +64,14 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/log_field_height"
             android:imeOptions="actionDone"
-            android:inputType="textEmailAddress|textNoSuggestions"
+            android:inputType="textPassword|textNoSuggestions"
             android:lines="1"
             android:maxLines="1"
             android:paddingStart="@dimen/margin_medium"
             android:singleLine="true"
+            android:textColor="@color/colorBlue"
             android:textCursorDrawable="@color/colorPrimaryDark"
-            android:theme="@style/textInputEditTextStyle"
+            android:theme="@style/TextInputEditTextStyle"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,11 +105,11 @@
         android:layout_width="@dimen/progressbar_size"
         android:layout_height="@dimen/progressbar_size"
         android:layout_marginTop="@dimen/margin_small"
-        android:elevation="@dimen/elevation"
+        android:elevation="@dimen/elevation_1"
         android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_sign_in_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_activity_button_login_id" />
 
@@ -124,10 +128,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.2"
+        android:scaleType="fitXY"
         android:src="@drawable/background_main_activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/main_activity_reset_password_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="@string/text_view_reset_password_button"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_touch_image_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

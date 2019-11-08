@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#1a237e</color>
     <color name="colorPrimaryDark">#000051</color>
     <color name="colorAccent">#1A237E</color>
-    <color name="colorButtons">#2330A7</color>
+    <color name="colorBlue">#2330A7</color>
     <color name="colorViolet">#5A52BD</color>
     <color name="colorToastStroke">#5149A3</color>
     <color name="colorSelectionCalendar">#E9B718</color>
-    <color name="winterBackground">#007B9A</color>
-    <color name="springBackground">#00BDDD</color>
-    <color name="summerBackground">#8FDCEE</color>
     <color name="colorGray">#D5D0CF</color>
     <color name="colorLightGray">#ECEAEA</color>
     <color name="dirtyWhite">#F7F4F4</color>
+    <color name="mainActivityBackground">#33FDFDFE</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#BB2F2F</color>
     <color name="colorDarkGray">#494747</color>
+    <color name="colorButtonRippleEffect">#9B9999</color>
     <color name="eventDotColor">#FFFCBE</color>
     <color name="weekendColor">#1EE44444</color>
     <color name="calendarPrimaryTextColor">#535050</color>
     <color name="transparent">#00FDFCFC</color>
+    <color name="halfTransparent">#B33C3A3A</color>
     <color name="black">#090808</color>
     <color name="colorBackground0">#7591B8</color>
     <color name="colorBackground1">#2E2C2B</color>
@@ -32,4 +33,5 @@
     <color name="colorBackground9">#393838</color>
     <color name="colorBackground10">#B82F2F</color>
     <color name="colorBackground11">#675D67</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/colorBlue</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">MyCalendar</string>
+	<string name="app_name">EveCalendar</string>
 	<string name="main_activity_title">Logowanie</string>
 	<string name="registration_activity_title">Rejestracja</string>
 	<string name="enter_email">email</string>
@@ -34,4 +34,39 @@
 	<string name="not_registered_text">Rejestracja nie powiodła się.</string>
 	<string name="no_internet_connection">Brak połączenia internetowego</string>
 	<string name="exit_information">Naciśnij jeszcze raz żeby zamknąć aplikację</string>
+	<string name="settings">Ustawienia</string>
+	<string name="help_about_text">EveCalendar to aplikacja, która zapewnia dostęp do wspólnego kalendarza dla wielu użytkowników.</string>
+	<string name="help_creator_text">Aplikacja została stworzona przez Macieja Koseckiego (Polska, Świdnica)</string>
+	<string name="help_creator_title_text">Twórca:</string>
+	<string name="help_functionality_text">Wszyscy użytkownicy korzystający z tego samego loginu mają dostęp do współdzielonego kalendarza. Wydarzenia dodane przez jednego z użytkowników będą dostępne dla pozostałych współużytkowników.</string>
+	<string name="help_functionality_title_text">Funkcjonalność:</string>
+	<string name="help_idea_text">Idea:</string>
+	<string name="help_info">Pomoc</string>
+	<string name="help_info_add_events">- W celu dodania wydarzenia w dniu, w którym nie ma zaplanowanych wydarzeń, wystarczy przycisnąć i chwilę przytrzymać datę. Następnie zostaniesz przeniesiony do ekranu dodawania wydarzeń.</string>
+	<string name="help_info_events_dots">- Wydarzenia zaznaczone są w kalendarzu kropkami. Aby zobaczyć szczegóły wydarzenia, musisz przycisnąć i chwilę przytrzymać datę z kropką. Na ekranie pokazującym szczegóły wydarzenia możesz dodać inne wydarzenia lub usunąć niektóre z nich.</string>
+	<string name="help_info_events_type">- Najpierw musisz dodać typ wydarzenia do swojego kalendarza. Możesz to zrobić, dodając słowa w odpowiednim polu w ustawieniach. W ustawieniach możesz także usunąć listę typów wydarzeń.</string>
+	<string name="hint_events_type">dodaj typ wydarzenia</string>
+	<string name="logout_app">Wyloguj się</string>
+	<string name="remove_event_type">Wszystkie typy wydarzeń zostały usunięte</string>
+	<string name="exit_app">Zamknij aplikację</string>
+	<string name="clear_vents_types_list">Usuń typy wydarzeń</string>
+	<string name="about_app">O aplikacji oraz pomoc</string>
+	<string name="add_events_type">Typ wydarzenia został dodany</string>
+	<string name="bubble_dialog_calendar_info">Najpierw musisz kliknąć ikonę ustawień, aby dodać typ wydarzenia.</string>
+	<string name="bubble_dialog_check">Nie pokazuj więcej tego komunikatu</string>
+    <string name="add_event_toast_info">Najpierw musisz dodać typy wydarzeń w ustawieniach.</string>
+    <string name="app_version">Wersja aplikacji: 1.0</string>
+    <string name="delete_user_text">Profil użytkownika został usunięty</string>
+    <string name="delete_user_option_info">Usuń profil użytkownika</string>
+    <string name="delete_user_dialog_info">Czy chcesz usunąć profil użytkownika? Wszystkie Twoje wydarzenia oraz typy wydarzeń zostaną usunięte.</string>
+	<string name="yes_text">Tak</string>
+	<string name="no_text">Nie</string>
+    <string name="delete_events_type_dialog_info">Czy chcesz usunąć wszystkie typy wydarzeń?</string>
+    <string name="password_must_contain">Hasło musi składać się z co najmniej 8 znaków i zawierać co najmniej jedną: małą literę, dużą literę, cyfrę oraz znak specjalny</string>
+    <string name="options">Opcje</string>
+    <string name="events_font_size">Wielkość czcionki typu wydarzenia:</string>
+    <string name="reset_password_correct_toast">Wysłano e-mail</string>
+	<string name="reset_password_incorrect_toast">Nie ma użytkownika o takim e-mailu</string>
+	<string name="reset_password_info">Wprowadź e-mail aby zresetować hasło:</string>
+    <string name="text_view_reset_password_button">Resetowanie hasła</string>
 </resources>

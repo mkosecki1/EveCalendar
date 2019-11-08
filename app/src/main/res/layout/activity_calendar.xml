@@ -16,36 +16,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/calendar_activity_settings_id"
+        android:id="@+id/calendar_activity_options_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_micro"
-        android:src="@drawable/ic_settings"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:elevation="@dimen/elevation_3"
+        android:src="@drawable/ic_hamburger"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/calendar_activity_logout_id"
-        android:layout_width="@dimen/exit_icon_size"
-        android:layout_height="@dimen/exit_icon_size"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_micro"
-        android:src="@drawable/logout"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_activity_settings_id" />
-
-    <ImageView
-        android:id="@+id/calendar_activity_exit_id"
-        android:layout_width="@dimen/exit_icon_size"
-        android:layout_height="@dimen/exit_icon_size"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_micro"
-        android:src="@drawable/ic_exit_app"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_activity_logout_id" />
 
     <com.events.calendar.views.EventsCalendar
         android:id="@+id/events_calendar_id"
@@ -54,7 +34,7 @@
         android:layout_marginStart="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_small"
-        android:elevation="@dimen/elevation"
+        android:elevation="@dimen/elevation_1"
         android:overScrollMode="never"
         app:datesTextSize="@dimen/text_header_size"
         app:eventDotColor="@color/eventDotColor"
@@ -72,18 +52,59 @@
         app:selectedTextColor="@color/white"
         app:selectionColor="@color/colorSelectionCalendar"
         app:weekHeaderColor="@color/white"
+
         app:weekHeaderTextSize="@dimen/text_calendar_size" />
 
     <ProgressBar
-        android:id="@+id/calendar_activity_progressbar"
+        android:id="@+id/calendar_activity_progressbar_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/elevation"
+        android:elevation="@dimen/elevation_1"
         android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/calendar_activity_options_layout_id"
+        layout="@layout/options_menu"
+        android:layout_width="@dimen/options_layout_width"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/calendar_activity_options_layout_background_id"
+        layout="@layout/options_menu_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/calendar_activity_bubble_dialog_id"
+        layout="@layout/bubble_dialog_helper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

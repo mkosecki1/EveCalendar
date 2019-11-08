@@ -19,10 +19,10 @@
     </style>
 
     <style name="DayDetailsBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/colorButtons</item>
+        <item name="android:statusBarColor">@color/colorBlue</item>
     </style>
 
-    <style name="buttonStyle" parent="TextAppearance.AppCompat.Button">
+    <style name="ButtonStyle" parent="TextAppearance.AppCompat.Button">
         <item name="colorAccent">@color/colorViolet</item>
     </style>
 
@@ -34,19 +34,48 @@
         <item name="android:textColorPrimary">@color/white</item>
     </style>
 
-    <style name="textInputLayoutStyle" parent="@android:style/TextAppearance">
+    <style name="TextOptionsStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextHelpNormalStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
+    </style>
+
+    <style name="TextHelpBoldStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">@dimen/font_size_18</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextInputEditTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorBlue</item>
+        <item name="colorControlNormal">@color/colorBlue</item>
+        <item name="colorControlHighlight">@color/colorBlue</item>
+        <item name="colorControlActivated">@color/colorBlue</item>
+    </style>
+
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
         <item name="android:textColor">@color/colorViolet</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorBlue</item>
+        <item name="android:background">@color/dirtyWhite</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="textInputEditTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">@color/colorViolet</item>
-        <item name="colorControlNormal">@color/colorViolet</item>
-        <item name="colorControlHighlight">@color/colorViolet</item>
-        <item name="colorControlActivated">@color/colorViolet</item>
+    <style name="AlertDialogEditText" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:backgroundTint">@color/colorToastStroke</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorViolet</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_drawable</item>
+        <item name="android:textSelectHandle">@color/colorDarkGray</item>
+        <item name="android:textSelectHandleLeft">@color/colorDarkGray</item>
+        <item name="android:textSelectHandleRight">@color/colorDarkGray</item>
     </style>
 
-    <style name="myToastAdd">
+    <style name="MyToastAdd">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -62,7 +91,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastRemove">
+    <style name="MyToastRemove">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -78,7 +107,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastPassword">
+    <style name="MyToastPassword">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -94,7 +123,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastInvalid">
+    <style name="MyToastInvalid">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -110,7 +139,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastMail">
+    <style name="MyToastMail">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -126,7 +155,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastRegistered">
+    <style name="MyToastRegistered">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -142,7 +171,7 @@
         <item name="stRadius">20dp</item>
     </style>
 
-    <style name="myToastNoInternet">
+    <style name="MyToastNoInternet">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>
         <item name="stTextSize">16sp</item>
@@ -157,5 +186,26 @@
         top or center
         <item name="stRadius">20dp</item>
     </style>
+
+    <style name="TextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearanceOptions" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>

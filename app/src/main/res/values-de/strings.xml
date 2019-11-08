@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Unser Kalender</string>
+	<string name="app_name">EveCalendar</string>
 	<string name="main_activity_title">einloggen</string>
 	<string name="registration_activity_title">Anmeldung</string>
 	<string name="enter_email">Email</string>
@@ -34,4 +34,39 @@
 	<string name="not_registered_text">Registrierung fehlgeschlagen.</string>
 	<string name="no_internet_connection">Keine Internetverbindung</string>
 	<string name="exit_information">Klicken Sie erneut zurück, um den Vorgang zu beenden</string>
+    <string name="about_app">Über Bewerbung und Hilfe</string>
+	<string name="add_event_toast_info">Zuerst müssen Sie Ereignisse hinzufügen, indem Sie Einstellungen eingeben.</string>
+	<string name="add_events_type">Der Ereignistyp wurde hinzugefügt</string>
+	<string name="bubble_dialog_calendar_info">Zuerst müssen Sie auf das Einstellungssymbol klicken, um den Ereignistyp hinzuzufügen.</string>
+	<string name="bubble_dialog_check">Diese Mitteilung nicht mehr anzeigen</string>
+	<string name="clear_vents_types_list">Ereignistypen löschen</string>
+    <string name="exit_app">Schließe die Anwendung</string>
+	<string name="help_about_text">EveCalendar ist eine Anwendung, mit der Sie für viele Benutzer auf einen freigegebenen Kalender zugreifen können.</string>
+	<string name="help_creator_text">EveCalendar wurde erstellt von Maciej Kosecki (Poland, Swidnica)</string>
+	<string name="help_creator_title_text">Schöpfer:</string>
+	<string name="help_functionality_text">Alle Benutzer, die dieselbe Anmeldung verwenden, haben Zugriff auf den freigegebenen Kalender. Von einem Benutzer hinzugefügte Ereignisse stehen allen Benutzern zur Verfügung.</string>
+	<string name="help_functionality_title_text">Funktionalität:</string>
+	<string name="help_idea_text">Idee:</string>
+	<string name="help_info">Hilfe:</string>
+	<string name="help_info_add_events">- Um Termine am Tag hinzuzufügen, an denen keine Termine geplant sind, müssen Sie nur den Termin verlängern. Dadurch gelangen Sie zum Bildschirm zum Hinzufügen von Ereignissen.</string>
+	<string name="help_info_events_dots">- Ereignisse werden durch Punkte im Kalender angegeben. Um Ereignisdetails anzuzeigen, müssen Sie ein langes Druckdatum mit Punkt eingeben. In der Ereignisdetailansicht können Sie andere Ereignisse hinzufügen oder einige Ereignisse entfernen.</string>
+	<string name="help_info_events_type">- Zuerst müssen Sie Ihrem Kalender einen Ereignistyp hinzufügen. Sie können dies tun, indem Sie ein Feld in den Einstellungen hinzufügen. \nSie können auch die Liste der Ereignistypen in den Einstellungen entfernen.</string>
+	<string name="hint_events_type">Sie können die Liste der Ereignistypen auch in den Einstellungen entfernen.</string>
+	<string name="logout_app">Ausloggen</string>
+	<string name="remove_event_type">Alle Ereignistypen wurden entfernt</string>
+	<string name="settings">Die einstellungen</string>
+    <string name="app_version">Anwendungsversion: 1.0</string>
+    <string name="delete_user_text">Benutzerprofil wurde gelöscht</string>
+    <string name="delete_user_option_info">Benutzerprofil löschen</string>
+    <string name="delete_user_dialog_info">Möchten Sie Ihr Benutzerprofil entfernen? Alle Ihre Ereignisse und Ereignistypen werden entfernt.</string>
+	<string name="yes_text">Ja</string>
+	<string name="no_text">Nein</string>
+    <string name="delete_events_type_dialog_info">Möchten Sie alle Ihre Ereignistypen entfernen?</string>
+    <string name="password_must_contain">Das Passwort muss mindestens 8 Zeichen und mindestens eines enthalten: Kleinbuchstaben, Großbuchstaben, Ziffern und Sonderzeichen</string>
+    <string name="options">Optionen</string>
+	<string name="events_font_size">Ereignistyp Schriftgröße:</string>
+    <string name="text_view_reset_password_button">Passwort zurücksetzen</string>
+	<string name="reset_password_info">Geben Sie Ihre E-Mail-Adresse ein, um das Passwort zurückzusetzen:</string>
+	<string name="reset_password_correct_toast">Erhalten Sie eine E-Mail</string>
+	<string name="reset_password_incorrect_toast">Es existiert kein Benutzer mit einer solchen E-Mail</string>
 </resources>

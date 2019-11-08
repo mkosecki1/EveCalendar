@@ -5,14 +5,14 @@
     android:id="@+id/day_activity_background_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sharedcalendar.ui.DayActivity" >
+    tools:context="com.sharedcalendar.ui.DayActivity">
 
     <TextView
         android:id="@+id/day_activity_title_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_big"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/font_size_18"
@@ -23,23 +23,23 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/day_activity_recycler_view_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginBottom="@dimen/margin_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/elevation"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/day_activity_back_button_id"
         android:layout_width="@dimen/round_button_dimen"
         android:layout_height="@dimen/round_button_dimen"
-        android:layout_marginTop="@dimen/margin_small"
         android:layout_marginStart="@dimen/margin_small"
-        android:background="@drawable/button_back"
-        android:src="@drawable/ic_backspace"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/ic_backspace_ripple_effect"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,18 +50,18 @@
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
-        android:background="@drawable/button_back"
-        android:src="@drawable/ic_add"
+        android:elevation="@dimen/elevation_1"
+        android:background="@drawable/ic_add_ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/day_activity_background_image_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.2"
-        android:src="@drawable/background_details"
+        android:scaleType="fitXY"
+        android:src="@drawable/background_details_z"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
-<resources>
-    <string name="app_name">MyCalendar</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">EveCalendar</string>
+    <string name="app_version">Application version: 1.0</string>
     <string name="main_activity_title">Log in</string>
     <string name="registration_activity_title">Registration</string>
     <string name="enter_email">e-mail</string>
@@ -33,4 +34,38 @@
     <string name="not_registered_text">Registration failed.</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="exit_information">Please click back again to exit</string>
+    <string name="settings">Settings</string>
+    <string name="hint_events_type">here add events type</string>
+    <string name="exit_app">Close application</string>
+    <string name="logout_app">Logout</string>
+    <string name="about_app">About application and help</string>
+    <string name="help_idea_text">Idea:</string>
+    <string name="help_creator_title_text">Creator:</string>
+    <string name="help_creator_text">EveCalendar was created by Maciej Kosecki (Poland, Swidnica)</string>
+    <string name="help_about_text">EveCalendar is an application that gives you access to a shared calendar for many users.</string>
+    <string name="help_functionality_title_text">Functionality:</string>
+    <string name="help_functionality_text">All users using the same login have access to the shared calendar. Events added by one of the users will be available to all users.</string>
+    <string name="help_info_events_type">- First you need to add events type to your calendar. You can do this by add field in settings.\nYou can also remove your events type list in settings.</string>
+    <string name="help_info_events_dots">- Events are specified by dots on calendar. To see events detail, you must long press date with dot.On event details view you can add other events or remove some events.</string>
+    <string name="help_info_add_events">- To add events on date, where are no planned events, you just need to long press date. This will move you to add events screen.</string>
+    <string name="help_info">Help:</string>
+    <string name="clear_vents_types_list">Clear events types</string>
+    <string name="add_events_type">The event type has been added</string>
+    <string name="remove_event_type">All event types has been removed</string>
+    <string name="bubble_dialog_calendar_info">First you must click on settings icon to add events type.</string>
+    <string name="add_event_toast_info">First you must add events type in settings.</string>
+    <string name="bubble_dialog_check">Do not show this again</string>
+    <string name="delete_user_text">User profile has been deleted</string>
+    <string name="delete_user_option_info">Delete user profile</string>
+    <string name="delete_user_dialog_info">Do you want to remove your user profile? All your event and event types will be removed.</string>
+    <string name="delete_events_type_dialog_info">Do you want to remove all your events types?</string>
+    <string name="yes_text">Yes</string>
+    <string name="no_text">No</string>
+    <string name="password_must_contain">The password must contain at least 8 characters and contain at least one: lowercase letter, uppercase letter, digit and special character</string>
+    <string name="options">Options</string>
+    <string name="events_font_size">Events type font size:</string>
+    <string name="reset_password_info">Enter your email to reset password:</string>
+    <string name="reset_password_correct_toast">Receive an email</string>
+    <string name="reset_password_incorrect_toast">No user exist with such email</string>
+    <string name="text_view_reset_password_button">Password reset</string>
 </resources>
