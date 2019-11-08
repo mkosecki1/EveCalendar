@@ -34,5 +34,11 @@ class CalendarViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun addToDatabase(databaseReference: DatabaseReference, calendarListener: ValueEventListener) =
-        databaseReference.addValueEventListener(calendarListener)
+        databaseReference.addListenerForSingleValueEvent(calendarListener)
+
+    fun pushDataToDatabase(databaseReference: DatabaseReference, databaseName: String) =
+        databaseReference.child(databaseName).push()
+
+    fun takeTaskFromDatabase(databaseReference: DatabaseReference, databaseName: String) =
+        databaseReference.child(databaseName)
 }

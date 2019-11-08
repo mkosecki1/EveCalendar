@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "393468044230",
-    "firebase_url": "https://calendar-4659a.firebaseio.com",
-    "project_id": "calendar-4659a",
-    "storage_bucket": "calendar-4659a.appspot.com"
+    "project_number": "647011878948",
+    "firebase_url": "https://calendar-ad5da.firebaseio.com",
+    "project_id": "calendar-ad5da",
+    "storage_bucket": "calendar-ad5da.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:393468044230:android:848965b4869ce4200088c7",
+        "mobilesdk_app_id": "1:647011878948:android:6aff6bc8150f24cf4af0b1",
         "android_client_info": {
           "package_name": "com.sharedcalendar.debug"
         }
       },
       "oauth_client": [
         {
-          "client_id": "393468044230-kaji3h4lks56g6q6si660r8bpmbn095g.apps.googleusercontent.com",
+          "client_id": "647011878948-7soiq722m2blav36shiusqbk3m6vl2aq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.sharedcalendar.mk",
+            "package_name": "com.sharedcalendar.mkdev",
             "certificate_hash": "3dd1489a7ee5c1defdcd41ec3118be747d8d881b"
           }
         },
         {
-          "client_id": "393468044230-a5jqf4hcn5mrqamge8lp3lcp4npep04h.apps.googleusercontent.com",
+          "client_id": "647011878948-cb2akk7rf3ucpp9p99nqjn22ccos3c91.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDaWyIpQP64Ymzvvu2A2_TXwJXLTt9TT6A"
+          "current_key": "AIzaSyCE4osOj5vQ8WVpy8j-4S30welYH4zyLmo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "393468044230-a5jqf4hcn5mrqamge8lp3lcp4npep04h.apps.googleusercontent.com",
+              "client_id": "647011878948-cb2akk7rf3ucpp9p99nqjn22ccos3c91.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

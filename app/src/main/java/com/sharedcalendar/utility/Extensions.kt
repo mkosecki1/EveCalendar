@@ -8,9 +8,11 @@ import android.net.NetworkInfo
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.view.View
+import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.muddzdev.styleabletoast.StyleableToast
@@ -55,7 +57,7 @@ fun Context.checkInternetConnection(): Boolean {
             applicationContext,
             getString(R.string.no_internet_connection),
             Toast.LENGTH_LONG,
-            R.style.myToastNoInternet
+            R.style.MyToastNoInternet
         ).show()
         false
     }
@@ -104,6 +106,31 @@ fun ConstraintLayout.setMonthBackground(
     }
 }
 
+fun setMonthNavigationBarsColour(
+    window: Window,
+    currentMonth: Int,
+    context: Context
+) {
+    when (currentMonth) {
+        0 -> window.navigationBarColor = context.getColor(R.color.colorBackground0)
+        1 -> window.navigationBarColor = context.getColor(R.color.colorBackground1)
+        2 -> window.navigationBarColor = context.getColor(R.color.colorBackground2)
+        3 -> window.navigationBarColor = context.getColor(R.color.colorBackground3)
+        4 -> window.navigationBarColor = context.getColor(R.color.colorBackground4)
+        5 -> window.navigationBarColor = context.getColor(R.color.colorBackground5)
+        6 -> window.navigationBarColor = context.getColor(R.color.colorBackground6)
+        7 -> window.navigationBarColor = context.getColor(R.color.colorBackground7)
+        8 -> window.navigationBarColor = context.getColor(R.color.colorBackground8)
+        9 -> window.navigationBarColor = context.getColor(R.color.colorBackground9)
+        10 -> window.navigationBarColor = context.getColor(R.color.colorBackground10)
+        11 -> window.navigationBarColor = context.getColor(R.color.colorBackground11)
+    }
+}
+
+fun setNavigationBarColour(window: Window, context: Context) {
+    window.navigationBarColor = context.getColor(R.color.mainActivityBackground)
+}
+
 fun Context.startVibration(duration: Long) {
     val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     if (vibrator.hasVibrator()) {
@@ -113,5 +140,20 @@ fun Context.startVibration(duration: Long) {
                 VibrationEffect.DEFAULT_AMPLITUDE
             )
         )
+    }
+}
+
+fun openDialog(context: Context, message: String, view: View?, runMethod: () -> Unit) {
+    val builder = AlertDialog.Builder(context, R.style.AlertDialog)
+    with(builder) {
+        setMessage(message)
+        setView(view)
+        setPositiveButton(context.getString(R.string.yes_text)) { _, _ ->
+            runMethod()
+        }
+        setNegativeButton(context.getString(R.string.no_text)) { _, _ ->
+        }
+        create()
+        show()
     }
 }

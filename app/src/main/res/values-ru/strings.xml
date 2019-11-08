@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Мой календарь</string>        
+    <string name="app_name">EveCalendar</string>        
     <string name="main_activity_title">Войти </string>        
     <string name="registration_activity_title">Регистрация</string>        
     <string name="enter_email">электронная почта </string>        
@@ -34,4 +34,39 @@
     <string name="not_registered_text">Ошибка регистрации. </string>        
     <string name="no_internet_connection">Нет подключения к Интернету </string>        
     <string name="exit_information">Пожалуйста, нажмите еще раз, чтобы выйти </string>
+    <string name="about_app">О приложении и помощи</string>
+    <string name="add_event_toast_info">Сначала вы должны добавить тип событий в настройках.</string>
+    <string name="add_events_type">Тип события был добавлен</string>
+    <string name="bubble_dialog_calendar_info">Сначала вы должны нажать на значок настроек, чтобы добавить тип событий.</string>
+    <string name="bubble_dialog_check">Больше не показывай это</string>
+    <string name="clear_vents_types_list">Очистить типы событий</string>
+    <string name="exit_app">Закрыть приложение</string>
+    <string name="help_about_text">EveCalendar - это приложение, которое дает вам доступ к общему календарю для многих пользователей.</string>
+    <string name="help_creator_text">EveCalendar создал Мацей Косецкий (Польша, Свидница)</string>
+    <string name="help_creator_title_text">Создатель:</string>
+    <string name="help_functionality_text">Все пользователи, использующие один и тот же логин, имеют доступ к общему календарю. События, добавленные одним из пользователей, будут доступны всем пользователям.</string>
+    <string name="help_functionality_title_text">Функциональные возможности:</string>
+    <string name="help_idea_text">Идея:</string>
+    <string name="help_info">Помогите:</string>
+    <string name="help_info_add_events">- Чтобы добавить события на дату, где нет запланированных событий, вам просто нужно долго нажимать на дату. Это переместит вас, чтобы добавить экран событий.</string>
+    <string name="help_info_events_dots">- События указаны точками в календаре. Чтобы просмотреть подробности событий, вы должны нажать и удерживать дату с точкой. В окне просмотра сведений о событии вы можете добавить другие события или удалить некоторые события.</string>
+    <string name="help_info_events_type">- Сначала вам нужно добавить тип событий в свой календарь. Вы можете сделать это, добавив поле в настройках. \nВы также можете удалить свой список типов событий в настройках.</string>
+    <string name="hint_events_type">здесь добавить тип события</string>
+    <string name="logout_app">Выйти</string>
+    <string name="remove_event_type">Все типы событий были удалены</string>
+    <string name="settings">НАСТРОЙКИ</string>
+    <string name="app_version">Версия приложения: 1.0</string>
+    <string name="delete_user_text">Профиль пользователя удален</string>
+    <string name="delete_user_option_info">Удалить профиль пользователя</string>
+    <string name="delete_user_dialog_info">Вы хотите удалить свой профиль пользователя? Все ваши события и типы событий будут удалены.</string>
+    <string name="yes_text">да</string>
+    <string name="no_text">нет</string>
+    <string name="delete_events_type_dialog_info">Вы хотите удалить все типы событий?</string>
+    <string name="password_must_contain">Пароль должен содержать не менее 8 символов и содержать не менее одного: строчные буквы, прописные буквы, цифры и специальные символы</string>
+    <string name="options">Параметры</string>
+    <string name="events_font_size">Размер шрифта типа событий:</string>
+    <string name="reset_password_correct_toast">Получить письмо</string>
+    <string name="reset_password_info">Введите адрес электронной почты, чтобы сбросить пароль:</string>
+    <string name="text_view_reset_password_button">Восстановление пароля</string>
+    <string name="reset_password_incorrect_toast">Пользователь с таким адресом не существует</string>
 </resources>

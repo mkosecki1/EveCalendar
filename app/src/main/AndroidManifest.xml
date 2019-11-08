@@ -9,12 +9,20 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_luncher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_luncher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DayDetailsBarTheme"/>
+        <activity
+            android:name=".ui.HelpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DayDetailsBarTheme" />
         <activity
             android:name=".ui.AddEventActivity"
             android:screenOrientation="portrait"
@@ -29,6 +37,7 @@
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

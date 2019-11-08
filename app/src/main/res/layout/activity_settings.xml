@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context="com.sharedcalendar.ui.SettingsActivity">
+
+    <ImageButton
+        android:id="@+id/settings_activity_back_button_id"
+        android:layout_width="@dimen/round_button_dimen"
+        android:layout_height="@dimen/round_button_dimen"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/button_back"
+        android:elevation="@dimen/elevation_1"
+        android:src="@drawable/ic_backspace_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/settings_activity_settings_image_id"
+        android:layout_width="@dimen/settings_image_width"
+        android:layout_height="@dimen/settings_image_height"
+        android:background="@drawable/settings_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+    <TextView
+        android:id="@+id/settings_activity_text_settings_id"
+        style="@style/TextHelpBoldStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:text="@string/settings"
+        android:textSize="@dimen/font_size_22"
+        app:layout_constraintEnd_toStartOf="@+id/settings_activity_logo_id"
+        app:layout_constraintTop_toTopOf="@+id/settings_activity_settings_image_id" />
+
+    <ImageView
+        android:id="@+id/settings_activity_logo_id"
+        android:layout_width="@dimen/options_logo_size"
+        android:layout_height="@dimen/options_logo_size"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:src="@drawable/settings_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/settings_activity_icon_add_event_id"
+        android:layout_width="@dimen/options_icon_size"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_large"
+        android:src="@drawable/ic_add_blue"
+        app:layout_constraintStart_toEndOf="@+id/settings_activity_add_event_layout_id"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_text_settings_id" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/settings_activity_add_event_layout_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="@dimen/options_field_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_big"
+        android:hint="@string/hint_events_type"
+        android:textColorHint="@color/colorBlue"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/colorBlue"
+        app:errorEnabled="false"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_text_settings_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/settings_activity_add_event_edit_id"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/log_field_height"
+            android:imeOptions="actionDone"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="@dimen/margin_medium"
+            android:singleLine="true"
+            android:textColor="@color/colorBlue"
+            android:textCursorDrawable="@color/colorPrimaryDark"
+            android:textSize="@dimen/font_size_16"
+            android:theme="@style/TextInputEditTextStyle"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/settings_activity_icon_clear_id"
+        android:layout_width="@dimen/options_icon_size"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginTop="@dimen/margin_big"
+        android:src="@drawable/ic_remove_circle"
+        app:layout_constraintStart_toStartOf="@+id/settings_activity_icon_add_event_id"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_icon_add_event_id" />
+
+    <TextView
+        android:id="@+id/settings_activity_text_clear_id"
+        style="@style/TextAppearanceOptions"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginStart="@dimen/margin_big"
+        android:text="@string/clear_vents_types_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/settings_activity_icon_clear_id" />
+
+    <ImageView
+        android:id="@+id/settings_activity_icon_delete_user_app_id"
+        android:layout_width="@dimen/options_icon_size"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginTop="@dimen/margin_big"
+        android:src="@drawable/ic_delete_user"
+        app:layout_constraintStart_toStartOf="@+id/settings_activity_icon_clear_id"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_icon_clear_id" />
+
+    <TextView
+        android:id="@+id/settings_activity_text_delete_user_app_id"
+        style="@style/TextAppearanceOptions"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_big"
+        android:text="@string/delete_user_option_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_text_clear_id" />
+
+    <TextView
+        android:id="@+id/settings_activity_font_info_id"
+        style="@style/TextAppearanceOptions"
+        android:layout_width="@dimen/options_field_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_big"
+        android:gravity="top"
+        android:text="@string/events_font_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_text_delete_user_app_id" />
+
+    <ImageView
+        android:id="@+id/settings_activity_icon_plus_font_size_id"
+        android:layout_width="@dimen/options_icon_size"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginTop="@dimen/margin_big"
+        android:src="@drawable/ic_add_box_blue"
+        app:layout_constraintStart_toStartOf="@+id/settings_activity_icon_delete_user_app_id"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_icon_delete_user_app_id" />
+
+    <ImageView
+        android:id="@+id/settings_activity_icon_minus_font_size_id"
+        android:layout_width="@dimen/options_icon_size"
+        android:layout_height="@dimen/options_icon_size"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:src="@drawable/ic_remove_blue"
+        app:layout_constraintStart_toEndOf="@+id/settings_activity_icon_plus_font_size_id"
+        app:layout_constraintTop_toTopOf="@+id/settings_activity_icon_plus_font_size_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,8 +21,10 @@ class MyApplication : Application(), KodeinAware {
         bind() from singleton { CalendarViewModelFactory(instance()) }
         bind() from singleton { DayViewModel(instance()) }
         bind() from singleton { DayViewModelFactory(instance()) }
-        bind() from singleton { AddEventViewModel() }
-        bind() from singleton { AddEventViewModelFactory() }
+        bind() from singleton { AddEventViewModel(instance()) }
+        bind() from singleton { AddEventViewModelFactory(instance()) }
+        bind() from singleton { SettingsViewModel(instance()) }
+        bind() from singleton { SettingsViewModelFactory(instance()) }
     }
 
 }

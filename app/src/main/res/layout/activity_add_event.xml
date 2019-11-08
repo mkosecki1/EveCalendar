@@ -10,6 +10,7 @@
         android:id="@+id/add_activity_top_layout_id"
         android:layout_width="match_parent"
         android:layout_height="@dimen/add_text_top_height"
+        android:layout_marginTop="@dimen/margin_small"
         android:background="@color/transparent"
         android:gravity="center"
         android:orientation="horizontal"
@@ -54,20 +55,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_activity_carousel_id" />
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_carousel_layout_id" />
 
-    <in.goodiebag.carouselpicker.CarouselPicker
-        android:id="@+id/add_activity_carousel_id"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_activity_carousel_layout_id"
         android:layout_width="@dimen/picker_height"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_big"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/margin_small"
         android:background="@drawable/white_board_view_shape"
-        android:foregroundGravity="center"
-        android:padding="@dimen/margin_micro"
-        app:items_visible="three"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_activity_top_layout_id" />
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_top_layout_id">
+
+        <in.goodiebag.carouselpicker.CarouselPicker
+            android:id="@+id/add_activity_carousel_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            app:items_visible="three"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/add_activity_cancel_button_id"
@@ -76,8 +87,7 @@
         android:layout_height="@dimen/round_button_dimen"
         android:layout_marginStart="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
-        android:background="@drawable/button_back"
-        android:src="@drawable/ic_clear"
+        android:background="@drawable/ic_clear_ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -88,8 +98,7 @@
         android:layout_height="@dimen/round_button_dimen"
         android:layout_marginEnd="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
-        android:background="@drawable/button_back"
-        android:src="@drawable/ic_done"
+        android:background="@drawable/ic_done_ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -98,10 +107,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.2"
+        android:scaleType="fitXY"
         android:src="@drawable/backgraund_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

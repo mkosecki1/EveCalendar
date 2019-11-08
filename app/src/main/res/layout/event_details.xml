@@ -25,7 +25,7 @@
             android:layout_height="@dimen/event_image_size"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
-            android:src="@drawable/ic_hospital"
+            android:src="@drawable/img_event_else"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
              />

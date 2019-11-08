@@ -9,14 +9,17 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.sharedcalendar.R
 import com.sharedcalendar.database.CalendarDate
+import com.sharedcalendar.database.CalendarType
 import com.sharedcalendar.utility.convertTimestamp
 import kotlinx.android.synthetic.main.event_details.view.*
 
 class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     private var items: MutableList<CalendarDate> = mutableListOf()
+    private var itemsType: MutableList<CalendarType> = mutableListOf()
     private lateinit var myContext: Context
     var selectedItem: ((CalendarDate) -> Unit)? = null
+    var eventsTypeList = CalendarType.create()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(viewGroup.context)
@@ -30,22 +33,12 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     private fun addEventImage(event: String, imageView: ImageView) {
-        when (event) {
-            myContext.getString(R.string.event_duty) -> imageView.setImageResource(
-                R.drawable.ic_hospital
-            )
-            myContext.getString(R.string.event_clinic_text) -> imageView.setImageResource(
-                R.drawable.ic_clinic
-            )
-            myContext.getString(R.string.event_visit_text) -> imageView.setImageResource(
-                R.drawable.ic_visit
-            )
-            myContext.getString(R.string.event_grafting_text) -> imageView.setImageResource(
-                R.drawable.ic_grafting
-            )
-            myContext.getString(R.string.event_other_text) -> imageView.setImageResource(
-                R.drawable.mountain
-            )
+        for (i in 0 until itemsType.size) {
+            when (event) {
+                itemsType[i].type -> imageView.setImageResource(
+                    eventsTypeList.getFromEventsTypesImagesList()[i]
+                )
+            }
         }
     }
 
@@ -73,6 +66,12 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
         items.clear()
         items.addAll(list)
         items.sortWith(compareBy({ it.date }, { it.time }))
+        notifyDataSetChanged()
+    }
+
+    fun updateTypeList(list: List<CalendarType>) {
+        itemsType.clear()
+        itemsType.addAll(list)
         notifyDataSetChanged()
     }
 }

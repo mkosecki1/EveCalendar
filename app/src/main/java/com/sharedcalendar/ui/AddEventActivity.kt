@@ -1,20 +1,27 @@
 package com.sharedcalendar.ui
 
 import `in`.goodiebag.carouselpicker.CarouselPicker
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.muddzdev.styleabletoast.StyleableToast
 import com.sharedcalendar.R
 import com.sharedcalendar.database.CalendarDate
+import com.sharedcalendar.database.CalendarType
 import com.sharedcalendar.database.EventsEvidence
 import com.sharedcalendar.database.Statics
+import com.sharedcalendar.utility.SharedPreference
 import com.sharedcalendar.utility.hideStatusBar
 import com.sharedcalendar.utility.setMonthBackground
+import com.sharedcalendar.utility.setMonthNavigationBarsColour
 import com.sharedcalendar.viewmodel.AddEventViewModel
 import com.sharedcalendar.viewmodel.AddEventViewModelFactory
 import kotlinx.android.synthetic.main.activity_add_event.*
@@ -29,22 +36,37 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
     override val kodein: Kodein by kodein()
     private lateinit var addEventViewModel: AddEventViewModel
     private lateinit var imageCarousel: CarouselPicker
-    private val datePickFromDay: String by lazy { intent.getStringExtra("value") }
-    private val monthPick: Int by lazy { intent.getIntExtra("month", 0) }
+    private lateinit var sharedPref: SharedPreference
+    private val datePickFromDay: String by lazy { intent.getStringExtra(CALENDAR_DATE) }
+    private val monthPick: Int by lazy { intent.getIntExtra(CURRENT_MONTH, 0) }
     private val addEventViewModelFactory: AddEventViewModelFactory by instance()
     private val databaseReference: FirebaseDatabase by instance()
     private var eventsEvidence = EventsEvidence()
+    private lateinit var valueEventListener: ValueEventListener
+    private var listOfCalendarType: List<CalendarType> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
         hideStatusBar()
-        enterData(datePickFromDay)
+        sharedPref = SharedPreference(this)
         initializeAddEventViewModel()
+        enterData(datePickFromDay)
 
         add_activity_cancel_button_id.setOnClickListener {
+            runCalendarActivity()
             finish()
         }
+
+        add_activity_ok_button_id.setOnClickListener {
+            isEventsTypesAdded()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        runCalendarActivity()
+        finish()
     }
 
     private fun initializeAddEventViewModel() {
@@ -54,6 +76,7 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
 
     private fun enterData(calendar: String) {
         add_activity_background_id.setMonthBackground(monthPick, this)
+        setMonthNavigationBarsColour(window, monthPick, this)
         imageCarousel = add_activity_carousel_id
         createListOfCarousel(imageCarousel)
         add_activity_text_data_id.text = calendar
@@ -62,7 +85,7 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
             val cal = Calendar.getInstance()
             cal.set(Calendar.HOUR_OF_DAY, hour)
             cal.set(Calendar.MINUTE, minute)
-            eventsEvidence.time = SimpleDateFormat("HH:mm").format(cal.time)
+            eventsEvidence.time = SimpleDateFormat(TIME_FORMAT).format(cal.time)
         }
 
         add_activity_carousel_id.addOnPageChangeListener(object :
@@ -75,35 +98,65 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
             }
 
             override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> eventsEvidence.event = getString(R.string.add_event_text)
-                    1 -> eventsEvidence.event = getString(R.string.event_clinic_text)
-                    2 -> eventsEvidence.event = getString(R.string.event_visit_text)
-                    3 -> eventsEvidence.event = getString(R.string.event_grafting_text)
-                    4 -> eventsEvidence.event = getString(R.string.event_other_text)
-                }
+                eventsEvidence.event = listOfCalendarType[position].type.toString()
+
             }
 
             override fun onPageScrollStateChanged(state: Int) {}
         })
-
-        add_activity_ok_button_id.setOnClickListener {
-            saveDate()
-            finish()
-        }
     }
 
     private fun createListOfCarousel(imageCarousel: CarouselPicker) {
-        val imageItems = ArrayList<CarouselPicker.PickerItem>()
-        imageItems.add(CarouselPicker.DrawableItem(R.drawable.duty))
-        imageItems.add(CarouselPicker.DrawableItem(R.drawable.clinic))
-        imageItems.add(CarouselPicker.DrawableItem(R.drawable.visit))
-        imageItems.add(CarouselPicker.DrawableItem(R.drawable.grafting))
-        imageItems.add(CarouselPicker.DrawableItem(R.drawable.other))
+        val fontSize = sharedPref.getCarouselFontSize(FONT_SIZE, CAROUSEL_FONT_SIZE)
+        var textItems = mutableListOf<CarouselPicker.PickerItem>()
+        valueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                listOfCalendarType = addEventViewModel.setTypeFromFirebase(dataSnapshot)
+                listOfCalendarType.forEach { it ->
+                    textItems.add(CarouselPicker.TextItem(it.type, fontSize))
+                }
 
-        val imageAdapter = CarouselPicker.CarouselViewAdapter(this, imageItems, 0)
-        imageAdapter.textColor = getColor(R.color.white)
-        imageCarousel.adapter = imageAdapter as PagerAdapter?
+                val textAdapter =
+                    CarouselPicker.CarouselViewAdapter(applicationContext, textItems, 0)
+                textAdapter.textColor = getColor(R.color.white)
+                imageCarousel.adapter = textAdapter as PagerAdapter?
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(
+                    baseContext, getString(R.string.on_cancelled_toast_text),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        addToDatabaseReference()
+    }
+
+    private fun addToDatabaseReference() {
+        addEventViewModel.addToDatabase(databaseReference.reference, valueEventListener)
+    }
+
+    private fun isEventsTypesAdded() {
+        if (!listOfCalendarType.isNullOrEmpty()) {
+            saveDate()
+
+
+            val intent = Intent(this, DayActivity::class.java)
+            intent.putExtra(CALENDAR_DATE, datePickFromDay)
+            intent.putExtra(CURRENT_MONTH, monthPick)
+            startActivity(intent)
+
+
+            finish()
+        } else {
+            StyleableToast.makeText(
+                applicationContext,
+                getString(R.string.add_event_toast_info),
+                Toast.LENGTH_LONG,
+                R.style.MyToastAdd
+            ).show()
+        }
     }
 
     private fun saveDate() {
@@ -117,7 +170,7 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
         }
 
         if (eventsEvidence.event.isNullOrEmpty()) {
-            calendarDate.event = getString(R.string.event_duty)
+            calendarDate.event = listOfCalendarType[0].type.toString()
         } else {
             calendarDate.event = eventsEvidence.event
             eventsEvidence.event = ""
@@ -131,10 +184,25 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
             applicationContext,
             getString(R.string.add_event_text),
             Toast.LENGTH_LONG,
-            R.style.myToastAdd
+            R.style.MyToastAdd
         ).show()
 
         val cal = Calendar.getInstance()
         cal.add(Calendar.DAY_OF_MONTH, 1)
+    }
+
+    private fun runCalendarActivity() {
+        val intent = Intent(this, CalendarActivity::class.java)
+        intent.putExtra(CALENDAR_DATE_BACK, datePickFromDay)
+        startActivity(intent)
+    }
+
+    companion object {
+        const val CALENDAR_DATE = "value"
+        const val CALENDAR_DATE_BACK = "value1"
+        const val CURRENT_MONTH = "month"
+        const val TIME_FORMAT = "HH:mm"
+        const val CAROUSEL_FONT_SIZE = 8
+        const val FONT_SIZE = "font"
     }
 }
