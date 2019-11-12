@@ -39,7 +39,7 @@ At this screen user can also remove each event and/or add new event by clicking 
 add screen).
 
 
-<img src="https://i.ibb.co/zrgZxHt/add-activity-1-A.jpg" width=250> <img src="https://i.ibb.co/FXfbN4z/day-activity-1.jpg" width=250> <img src="https://i.ibb.co/b5nbv8M/day-activity-2.jpg" width=250>
+<img src="https://i.ibb.co/zrgZxHt/add-activity-1-A.jpg" width=250> <img src="https://i.ibb.co/FXfbN4z/day-activity-1.jpg" width=250> <img src="https://i.ibb.co/b5nbv8M/day-activity-2.jpg" width=250> <img src="https://i.ibb.co/b5nbv8M/day-activity-2.jpg" width=250>
 
 
 # Developed By
