@@ -24,12 +24,11 @@ User have to login only for the first time. Until he logout, every lunch applica
 
 # Calendar screen
 This is the screen, where is the main calendar (forth screen). User can selected day and swipe left or right to change the month. 
-Every month has different background and image. 
-When user click on settings icon (on top right corner) appears two new icons, for logout and exit (fifth screen). 
-Dots on calendars represents added events (sixth screen). 
+Every month has different background and image. Dots on calendars represents added events.
+When user click on options icon (on top right corner) appears options menu (sixth screen). On options menu user may close application, logout, got to information about application or go to settings.
 
 
-<img src="https://i.ibb.co/CB5FQvJ/calendar-activity-1.jpg" width=250> <img src="https://i.ibb.co/3SCXsqx/calendar-activity-3.jpg" width=250> <img src="https://i.ibb.co/bvcz58h/calendar-activity-2.jpg" width=250>
+<img src="https://i.ibb.co/3ygYgQn/calendar-activity-1.jpg" width=250> <img src="https://i.ibb.co/3fpRxbD/calendar-activity-2.jpg" width=250> <img src="https://i.ibb.co/h2LcZ1r/options-1.jpg" width=250>
 
 
 When user long press day with no dot, he will be moved to next screen, where he can add an event on that day (seventh screen). 
