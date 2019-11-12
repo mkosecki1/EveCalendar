@@ -12,8 +12,8 @@ has an attempt to see, add or remove events on real time. All users using the sa
 
 # Main screen:
 This is the screen, where user can log in to application. Application check validation of email and password and if it's not in database, 
-show proper message (second screen).
-New user can register theirs email by clicking the text below login button. Then user go next screen, where he can register (third screen).
+show proper message (second screen). User can also restore his password by using proper button on main screen. After input his profile email, user receives email to reset password.
+New user can register theirs email by clicking the text below login button. Then user go next screen, where he can register (third screen). 
 
 
 <img src="https://i.ibb.co/6s8S1xX/main-activity-1.jpg" width=250><img src="https://i.ibb.co/xFhRzZx/main-activity-2.jpg" width=250> <img src="https://i.ibb.co/Dwsp35j/registration-activity-1.jpg" height=500 width=250>
@@ -32,7 +32,7 @@ When user click on options icon (on top right corner) appears options menu (sixt
 
 At settings user can: add or remove events types to calendar,  delete user profile (with all his data) ore change font size of events type picker (seventh screen).
 When user long press day with no dot, he will be moved to next screen, where he can add an event on that day (eight screen). 
-User can chose: evet by horizontal swipe carousel picker and time by vertical swipe begin and ends time pickers.
+User can chose: evet by horizontal swipe carousel picker and time by vertical swipe begin and end time pickers.
 
 Otherwise, when user long press day with dot, he will be moved to next screen, where he will see all events on picked day (ninth screen).
 At this screen user can also remove each event and/or add new event by clicking on the icon in bottom right corner (which open 
