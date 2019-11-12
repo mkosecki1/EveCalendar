@@ -76,6 +76,12 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
         itemsType.addAll(list)
         notifyDataSetChanged()
     }
+
+    fun updateTypeList(list: List<CalendarType>) {
+        itemsType.clear()
+        itemsType.addAll(list)
+        notifyDataSetChanged()
+    }
 }
 
 class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view)
