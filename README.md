@@ -2,7 +2,7 @@
 
 Second version of calendar application that gives possibility to add an events. Main function of the application is access to the shared
 calendar and to added events. All events added by users are stored on Firebase Realtime Database. Thanks to that solution, every user 
-has an attempt to see, add or remove events on real time.
+has an attempt to see, add or remove events on real time. All users using the same login have access to the shared calendar. Events added by one of the users will be available to all users.
 
 #Sources:
 - Firebase Realtime Database: https://firebase.google.com
@@ -30,7 +30,7 @@ When user click on options icon (on top right corner) appears options menu (sixt
 
 <img src="https://i.ibb.co/3ygYgQn/calendar-activity-1.jpg" width=250> <img src="https://i.ibb.co/3fpRxbD/calendar-activity-2.jpg" width=250> <img src="https://i.ibb.co/h2LcZ1r/options-1.jpg" width=250>
 
-
+At settings user can: add or remove events types to calendar,  delete user profile (with all his data) ore change font size of events type picker (seventh screen).
 When user long press day with no dot, he will be moved to next screen, where he can add an event on that day (seventh screen). 
 User can chose: evet by horizontal swipe carousel picker and time by vertical swipe time picker.
 
