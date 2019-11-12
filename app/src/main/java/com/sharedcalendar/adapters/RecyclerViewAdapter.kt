@@ -46,11 +46,13 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
         holder.itemView.run {
             items[position].event?.let { addEventImage(it, event_details_image_id) }
 
-            if (items[position].time.isNullOrEmpty()) {
-                event_details_time_displayed_id.text = myContext.getString(R.string.time_all_day)
+            if (items[position].timeFrom.isNullOrEmpty()) {
+                event_details_time_from_displayed_id.text = myContext.getString(R.string.time_all_day)
+                event_details_time_to_displayed_id.text = ""
 
             } else {
-                event_details_time_displayed_id.text = items[position].time.toString()
+                event_details_time_from_displayed_id.text = items[position].timeFrom.toString()
+                event_details_time_to_displayed_id.text = items[position].timeTo.toString()
             }
             event_details_event_displayed_id.text = items[position].event.toString()
             event_details_week_day_displayed_id.text =
@@ -65,7 +67,13 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ViewHolder>() {
     fun updateItemList(list: List<CalendarDate>) {
         items.clear()
         items.addAll(list)
-        items.sortWith(compareBy({ it.date }, { it.time }))
+        items.sortWith(compareBy({ it.date }, { it.timeFrom }))
+        notifyDataSetChanged()
+    }
+
+    fun updateTypeList(list: List<CalendarType>) {
+        itemsType.clear()
+        itemsType.addAll(list)
         notifyDataSetChanged()
     }
 

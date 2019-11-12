@@ -69,4 +69,6 @@
 	<string name="reset_password_correct_toast">收到邮件</string>
 	<string name="reset_password_info">输入您的电子邮件以重置密码：</string>
 	<string name="reset_password_incorrect_toast">没有用户使用该电子邮件</string>
+	<string name="add_event_hour_begin">开始:</string>
+	<string name="add_event_hour_end">结束:</string>
 </resources>

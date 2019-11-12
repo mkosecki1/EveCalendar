@@ -100,7 +100,7 @@
             tools:text="godzina" />
 
         <TextView
-            android:id="@+id/event_details_time_displayed_id"
+            android:id="@+id/event_details_time_from_displayed_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -109,6 +109,20 @@
             android:textSize="@dimen/font_size_16"
             app:layout_constraintStart_toStartOf="@+id/event_details_guideline_id"
             app:layout_constraintTop_toBottomOf="@+id/event_details_week_day_displayed_id"
+            tools:text="22:00" />
+
+        <TextView
+            android:id="@+id/event_details_time_to_displayed_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/event_details_guideline_id"
+            app:layout_constraintTop_toBottomOf="@+id/event_details_time_from_displayed_id"
             tools:text="22:00" />
 
         <androidx.constraintlayout.widget.Guideline

@@ -11,6 +11,8 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -124,6 +126,26 @@ fun setMonthNavigationBarsColour(
         9 -> window.navigationBarColor = context.getColor(R.color.colorBackground9)
         10 -> window.navigationBarColor = context.getColor(R.color.colorBackground10)
         11 -> window.navigationBarColor = context.getColor(R.color.colorBackground11)
+    }
+}
+
+fun TextView.setMonthTimeText(
+    currentMonth: Int,
+    context: Context
+) {
+    when (currentMonth) {
+        0 -> setTextColor(context.getColor(R.color.colorBackground0))
+        1 -> setTextColor(context.getColor(R.color.colorBackground1))
+        2 -> setTextColor(context.getColor(R.color.colorBackground2))
+        3 -> setTextColor(context.getColor(R.color.colorBackground3))
+        4 -> setTextColor(context.getColor(R.color.colorBackground4))
+        5 -> setTextColor(context.getColor(R.color.colorBackground5))
+        6 -> setTextColor(context.getColor(R.color.colorBackground6))
+        7 -> setTextColor(context.getColor(R.color.colorBackground7))
+        8 -> setTextColor(context.getColor(R.color.colorBackground8))
+        9 -> setTextColor(context.getColor(R.color.colorBackground9))
+        10 -> setTextColor(context.getColor(R.color.colorBackground10))
+        11 -> setTextColor(context.getColor(R.color.colorBackground11))
     }
 }
 

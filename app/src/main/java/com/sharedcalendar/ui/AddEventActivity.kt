@@ -18,10 +18,7 @@ import com.sharedcalendar.database.CalendarDate
 import com.sharedcalendar.database.CalendarType
 import com.sharedcalendar.database.EventsEvidence
 import com.sharedcalendar.database.Statics
-import com.sharedcalendar.utility.SharedPreference
-import com.sharedcalendar.utility.hideStatusBar
-import com.sharedcalendar.utility.setMonthBackground
-import com.sharedcalendar.utility.setMonthNavigationBarsColour
+import com.sharedcalendar.utility.*
 import com.sharedcalendar.viewmodel.AddEventViewModel
 import com.sharedcalendar.viewmodel.AddEventViewModelFactory
 import kotlinx.android.synthetic.main.activity_add_event.*
@@ -77,15 +74,26 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
     private fun enterData(calendar: String) {
         add_activity_background_id.setMonthBackground(monthPick, this)
         setMonthNavigationBarsColour(window, monthPick, this)
+        add_activity_time_text_from_id.setMonthTimeText(monthPick, this)
+        add_activity_time_text_to_id.setMonthTimeText(monthPick, this)
+        add_activity_carousel_text_id.setMonthTimeText(monthPick, this)
         imageCarousel = add_activity_carousel_id
         createListOfCarousel(imageCarousel)
-        add_activity_text_data_id.text = calendar
+//        add_activity_text_data_id.text = calendar
+        add_activity_carousel_text_id.text = getString(R.string.enter_dialog_title) + "  " + calendar
         eventsEvidence.date = calendar
-        add_activity_time_picker_id.setOnTimeChangedListener { _, hour, minute ->
+        add_activity_time_picker_from_id.setOnTimeChangedListener { _, hour, minute ->
             val cal = Calendar.getInstance()
             cal.set(Calendar.HOUR_OF_DAY, hour)
             cal.set(Calendar.MINUTE, minute)
-            eventsEvidence.time = SimpleDateFormat(TIME_FORMAT).format(cal.time)
+            eventsEvidence.timeFrom = SimpleDateFormat(TIME_FORMAT).format(cal.time)
+        }
+
+        add_activity_time_picker_to_id.setOnTimeChangedListener { _, hour, minute ->
+            val cal = Calendar.getInstance()
+            cal.set(Calendar.HOUR_OF_DAY, hour)
+            cal.set(Calendar.MINUTE, minute)
+            eventsEvidence.timeTo = SimpleDateFormat(TIME_FORMAT).format(cal.time)
         }
 
         add_activity_carousel_id.addOnPageChangeListener(object :
@@ -162,11 +170,13 @@ class AddEventActivity : AppCompatActivity(), KodeinAware {
     private fun saveDate() {
         val calendarDate = CalendarDate.create()
         calendarDate.date = eventsEvidence.date
-        if (eventsEvidence.time.isNullOrEmpty()) {
-            calendarDate.time = getString(R.string.time_all_day)
+        if (eventsEvidence.timeFrom.isNullOrEmpty()) {
+            calendarDate.timeFrom = getString(R.string.time_all_day)
+            calendarDate.timeTo = ""
         } else {
-            calendarDate.time = eventsEvidence.time
-            eventsEvidence.time = ""
+            calendarDate.timeFrom = eventsEvidence.timeFrom
+            calendarDate.timeTo = eventsEvidence.timeTo
+            eventsEvidence.timeFrom = ""
         }
 
         if (eventsEvidence.event.isNullOrEmpty()) {

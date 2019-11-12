@@ -14,7 +14,7 @@
     <string name="event_name">Event:</string>
     <string name="day_of_week">Day of the week:</string>
     <string name="this_day">Day:</string>
-    <string name="hour">Hour:</string>
+    <string name="hour">Hours:</string>
     <string name="cancel_button">Cancel</string>
     <string name="ok_button">OK</string>
     <string name="on_cancelled_toast_text">Failed to load post.</string>
@@ -68,4 +68,6 @@
     <string name="reset_password_correct_toast">Receive an email</string>
     <string name="reset_password_incorrect_toast">No user exist with such email</string>
     <string name="text_view_reset_password_button">Password reset</string>
+    <string name="add_event_hour_begin">Beginning:</string>
+    <string name="add_event_hour_end">End:</string>
 </resources>
