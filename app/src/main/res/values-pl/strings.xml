@@ -14,7 +14,7 @@
 	<string name="event_name">Wydarzenie:</string>
 	<string name="day_of_week">Dzień tygodnia:</string>
 	<string name="this_day">Dzień:</string>
-	<string name="hour">Godzina:</string>
+	<string name="hour">Godziny:</string>
 	<string name="cancel_button">Anuluj</string>
 	<string name="ok_button">OK</string>
 	<string name="on_cancelled_toast_text">Failed to load post.</string>
@@ -69,4 +69,6 @@
 	<string name="reset_password_incorrect_toast">Nie ma użytkownika o takim e-mailu</string>
 	<string name="reset_password_info">Wprowadź e-mail aby zresetować hasło:</string>
     <string name="text_view_reset_password_button">Resetowanie hasła</string>
+	<string name="add_event_hour_begin">Początek:</string>
+	<string name="add_event_hour_end">Koniec:</string>
 </resources>

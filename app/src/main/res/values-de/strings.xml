@@ -69,4 +69,6 @@
 	<string name="reset_password_info">Geben Sie Ihre E-Mail-Adresse ein, um das Passwort zurückzusetzen:</string>
 	<string name="reset_password_correct_toast">Erhalten Sie eine E-Mail</string>
 	<string name="reset_password_incorrect_toast">Es existiert kein Benutzer mit einer solchen E-Mail</string>
+	<string name="add_event_hour_begin">Anfang:</string>
+	<string name="add_event_hour_end">Ende:</string>
 </resources>

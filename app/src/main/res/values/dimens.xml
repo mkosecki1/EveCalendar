@@ -51,4 +51,5 @@
     <dimen name="dialog_helper_text_margin_top">145dp</dimen>
     <dimen name="settings_image_width">350dp</dimen>
     <dimen name="settings_image_height">200dp</dimen>
+    <dimen name="add_event_width_percent">0.9</dimen>
 </resources>

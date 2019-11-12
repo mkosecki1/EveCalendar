@@ -69,4 +69,6 @@
     <string name="reset_password_info">Введите адрес электронной почты, чтобы сбросить пароль:</string>
     <string name="text_view_reset_password_button">Восстановление пароля</string>
     <string name="reset_password_incorrect_toast">Пользователь с таким адресом не существует</string>
+    <string name="add_event_hour_begin">начало:</string>
+    <string name="add_event_hour_end">конец:</string>
 </resources>

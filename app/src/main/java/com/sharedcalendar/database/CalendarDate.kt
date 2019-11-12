@@ -7,6 +7,7 @@ class CalendarDate {
 
     var id: String? = null
     var date: String? = null
-    var time: String? = null
+    var timeFrom: String? = null
+    var timeTo: String? = null
     var event: String? = null
 }

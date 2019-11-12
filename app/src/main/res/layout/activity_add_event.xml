@@ -6,66 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/add_activity_top_layout_id"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/add_text_top_height"
-        android:layout_marginTop="@dimen/margin_small"
-        android:background="@color/transparent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/add_activity_text_title_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/enter_dialog_title"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_size_18"
-            android:textStyle="normal" />
-
-        <TextView
-            android:id="@+id/add_activity_text_data_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_micro"
-            android:background="@color/transparent"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_size_18"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <TimePicker
-        android:id="@+id/add_activity_time_picker_id"
-        android:layout_width="@dimen/picker_height"
-        android:layout_height="@dimen/time_picker_width"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/add_activity_carousel_text_id"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
         android:layout_marginTop="@dimen/margin_big"
-        android:background="@drawable/white_board_view_shape"
-        android:numbersBackgroundColor="@color/white"
-        android:numbersInnerTextColor="@color/white"
-        android:numbersSelectorColor="@color/white"
-        android:numbersTextColor="@color/white"
-        android:theme="@style/PickerTheme"
-        android:timePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_activity_carousel_layout_id" />
+        android:background="@drawable/text_view_shape_top"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium"
+        android:text="@string/enter_dialog_title"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/add_activity_carousel_layout_id" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/add_activity_carousel_layout_id"
-        android:layout_width="@dimen/picker_height"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="@dimen/margin_small"
-        android:background="@drawable/white_board_view_shape"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
+        android:background="@drawable/time_picker_view_shape_middle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_activity_top_layout_id">
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_carousel_text_id">
 
         <in.goodiebag.carouselpicker.CarouselPicker
             android:id="@+id/add_activity_carousel_id"
@@ -79,6 +43,68 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/add_activity_time_text_from_id"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
+        android:background="@color/dirtyWhite"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium"
+        android:text="@string/add_event_hour_begin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/add_activity_time_picker_from_id"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_carousel_layout_id" />
+
+    <TimePicker
+        android:id="@+id/add_activity_time_picker_from_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/time_picker_width"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
+        android:background="@drawable/time_picker_view_shape_middle"
+        android:numbersBackgroundColor="@color/white"
+        android:numbersInnerTextColor="@color/white"
+        android:numbersSelectorColor="@color/white"
+        android:numbersTextColor="@color/white"
+        android:theme="@style/PickerTheme"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_time_text_from_id" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/add_activity_time_text_to_id"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
+        android:background="@color/dirtyWhite"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium"
+        android:text="@string/add_event_hour_end"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/add_activity_time_picker_to_id"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_time_picker_from_id" />
+
+    <TimePicker
+        android:id="@+id/add_activity_time_picker_to_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/time_picker_width"
+        app:layout_constraintWidth_percent="@dimen/add_event_width_percent"
+        android:background="@drawable/time_picker_view_shape_bottom"
+        android:numbersBackgroundColor="@color/white"
+        android:numbersInnerTextColor="@color/white"
+        android:numbersSelectorColor="@color/white"
+        android:numbersTextColor="@color/white"
+        android:theme="@style/PickerTheme"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_activity_time_text_to_id" />
 
     <ImageButton
         android:id="@+id/add_activity_cancel_button_id"
