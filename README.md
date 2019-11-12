@@ -16,7 +16,7 @@ show proper message (second screen).
 New user can register theirs email by clicking the text below login button. Then user go next screen, where he can register (third screen).
 
 
-<img src="https://i.ibb.co/hH0y1z0/main-activity-1.jpg" width=250><img src="https://i.ibb.co/HzKRKV5/main-activity-2.jpg" width=250> <img src="https://i.ibb.co/xmBmVFR/registration-activity-1.jpg" height=500 width=250>
+<img src="https://ibb.co/x5Ybf0F" width=250><img src="https://ibb.co/sWjMs78" width=250> <img src="https://ibb.co/7r84720" height=500 width=250>
 
 
 After proper register user is automatically moved to screen with calendar.
