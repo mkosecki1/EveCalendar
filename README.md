@@ -4,7 +4,7 @@ Second version of calendar application that gives possibility to add an events. 
 calendar and to added events. All events added by users are stored on Firebase Realtime Database. Thanks to that solution, every user 
 has an attempt to see, add or remove events on real time. All users using the same login have access to the shared calendar. Events added by one of the users will be available to all users.
 
-#Sources:
+Sources:
 - Firebase Realtime Database: https://firebase.google.com
 - calendar library: https://github.com/tizisdeepan/EventsCalendar
 - carousel picker library: https://github.com/GoodieBag/CarouselPicker
